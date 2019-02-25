@@ -1,3 +1,5 @@
+package jstore;
+
 
 
 /**
@@ -18,11 +20,11 @@ public class Invoice
     }
     
   public String getIdItem(){
-     return "0";
+     return "kosong";
     }
     //klo string return kosong
   public String getDate(){
-        return "0";
+        return "kosong";
      
     }
     

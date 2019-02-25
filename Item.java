@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * Write a description of class Item here.
@@ -16,7 +18,7 @@ public class Item
     }
     
     public String getName() {
-    return "0"; 
+    return "kosong"; 
     }
     
     public int getStock() {
