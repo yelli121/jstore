@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Write a description of class Supplier here.
@@ -18,19 +16,19 @@ public class Supplier
     }
     
     public String getName(){
-    return "kosong";
+    return "0";
     }
 
     public String getEmail(){
-    return "kosong";
+    return "0";
     }
     
     public String getPhoneNumber(){
-    return "kosong";
+    return "0";
     }
     
     public String getCity(){
-    return "kosong";
+    return "0";
     }
     
     public void setId(int id){
