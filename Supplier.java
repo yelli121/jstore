@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * Write a description of class Supplier here.
