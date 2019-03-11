@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=DatabaseSupplier
+comment0.text=\r\n\ kelas\ yang\ menggunakan\ database\ dari\ supplier.\r\n\r\n\ @author\ yelli\ yulfita\r\n\ @version\ 27-02-2019\r\n
+comment1.params=supplier
+comment1.target=boolean\ addSupplier(Supplier)
+comment2.params=supplier
+comment2.target=boolean\ removeSupplier(Supplier)
+comment2.text=\r\n\ Metode\ addSupplier()\r\n\ @return\ false\r\n\ @param\ supplier\r\n
+comment3.params=
+comment3.target=Supplier\ getSupplier()
+comment3.text=\r\n\ Metode\ remove\ Supplier()\ //M\r\n\ @param\ supplier\r\n
+comment4.params=
+comment4.target=java.lang.String[]\ getListSupplier()
+comment4.text=\r\n\ Metode\ getSupplier()\r\n\ @return\ supplier\r\n
+numComments=5

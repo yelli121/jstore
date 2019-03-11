@@ -1,33 +1,57 @@
-package jstore;
-
 
 /**
- * Write a description of class DatabaseSupplier here.
+ * kelas yang menggunakan database dari supplier.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author yelli yulfita
+ * @version 27-02-2019
  */
 public class DatabaseSupplier
 {
-    private String listSupplier;
+    
+    private String[] listSupplier; //variabel yang dipakai
     private Supplier supplier;
     
-    public void addSupplier(Supplier supplier){
-        this.supplier =supplier;
+public boolean addSupplier(Supplier supplier){ //Menambah supplier
+        return false;
         
 }
-public void removeSupplier (Supplier supplier){
-    this.supplier=supplier;
+
+/**
+ * Metode addSupplier()
+ * @return false
+ * @param supplier
+ */
+
+public boolean removeSupplier (Supplier supplier){ //Menghapus supplier
+        return false;
 }
-public String getSupplier(){
-    return "0";
+
+/**
+ * Metode remove Supplier() //M
+ * @param supplier
+ */
+
+
+public Supplier getSupplier()//Menampilkan nama supplier
+{
+    return supplier;
 }
-public String getListSupplier(){
-return "0";
+
+/**
+ * Metode getSupplier()
+ * @return supplier
+ */
+
+
+public String[] getListSupplier() //Menampilkan list supplier
+{
+    return listSupplier;
 }
-public void printData(){
-    System.out.println ("DatabaseSupplier");
-}
+/**
+ * Metode getListSupplier()
+ * @return listSupplier
+ */
+
 }
 
 

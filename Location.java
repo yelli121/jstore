@@ -1,43 +1,91 @@
-package jstore;
-
 
 /**
  * Write a description of class Location here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yelli Yulfita
+ * @version 27-02-2019
  */
 public class Location
 {
-    public Location(){
-    }
-    private String province;
+    
+    private String province; //variabel yang dipakai
     private String description;
     private String city; 
-    public String getProvince() {
-        return "kosong";
+    //constructor
+    public Location(String city,String province,String description)
+    {
+        this.city=city;
+        this.province=province;
+        this.description=description;
     }
     
-    public String getCity() {
-        return "kosong";
-    }
-    public String getDescription(){
-        return "kosong";
-    }
-    public void setProvince (String province){
-        this.province =province;
-    }
-    public void setCity (String city) {
-        this.city = city;
-        
-    }
-    public void setDescription(String description) {
-        this.description = description;
+    public String getProvince()//Menampilkan nama provinsi
+    {
+        return province;
     }
     
-    public void printData(){
-        System.out.println("provinsi");
+    /**
+     * Metode getProvince()
+     * @return province
+     */
+    
+    public String getCity()//Menampilkan nama kota
+    {
+        return city;
+    }
+    
+    /**
+     * Metode getCity()
+     * @return city
+     */
+    
+    public String getDescription()//Menampilkan deskripsi lokasi
+    {
+        return description;
+    }
+    
+    /**
+     * Metode getDescription()
+     * @return description
+     */
+    
+    public void setProvince(String province)//Mengganti nama provinsi
+    {
+        this.province=province;
+    }
+    
+    /**
+     * Metode setProvince()
+     * @param province
+     */
+    
+    public void setCity(String city)//Mengganti nama kota
+    {
+        this.city=city;
+    }
+    
+    /**
+     * Metode setCity()
+     * @param city
+     */
+    
+    public void setDescription (String description)//Mengganti deskripsi
+    
+    {
+        this.description=description;
+    }
+    
+    /**
+     * Metode setDescription()
+     * @param description
+     */
+    
+    public void printData()//Mencetak nama provinsi
+    {
+        System.out.println(province);
+    }
+    /**
+     * Metode printData()
+     */
 }
-}
-        
-
+     

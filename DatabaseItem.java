@@ -1,27 +1,44 @@
-package jstore;
-
 
 /**
- * Write a description of class DatabaseItem here.
+ * Kelas Database dari Item.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yelli Yulfita
+ * @version 27-02-2019
  */
 public class DatabaseItem 
 {
-    
-    public void addItem(){
-    
+    private static String[] listItem; //variabel yang dipakai
+    private static Item item;
+    public boolean addItem (Item item) {//Menambah Item
+      return false;
+    }
+    /**metode addItem()
+     * @param item
+     * @return false
+     */
+    public boolean removeItem (Item item){ //Menghapus item
+        return false;
     }
     
-    public void removeItem(){
-    }
+    /**metode removeItem()
+     * @param item
+     * @return false
+     */
     
-    public void getItemDatabase(){
+    public Item getItem(){ //Menampilkan item
+        return item;
     }
+    /** Metode getItem()
+     * @return item
+     */
     
-    public void listItem(String Item){
+    public String[] getItemDatabase(){ //Menampilkan list Item
+        return listItem;
+        
     }
+    /** Metode getItemDatabase()
+     * @return listItem 
+     */
     
 }
 

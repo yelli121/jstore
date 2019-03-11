@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Write a description of class Jstore here.
@@ -11,11 +9,24 @@ public class Jstore
 {
     public static void main(String[] args)
     {
-        Short n1 =13;
-        Short n2 = 14;
-        System.out.println(n1.equals(n1));
-        System.out.println(n2.equals(n2));
+     
+     Location locationme =new Location("Serang","Banten","Pulau Jawa");
+     Supplier supplierme = new Supplier(1,"Yelli","yelli.yulfita@ui.ac.id",
+     "087774170558",locationme);
+     Item itemme = new Item (1,"Yelli",50,51,"Tersedia",supplierme);
+     supplierme.printData();
+     supplierme.setName("Nanda");
+     itemme.printData();
+     
+    
+     
+     
+     
+     
     }
 }
+   
+    
+
             
 
