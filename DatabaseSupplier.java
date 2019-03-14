@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * kelas yang menggunakan database dari supplier.

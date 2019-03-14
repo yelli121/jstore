@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * Kelas Database dari Item.
@@ -7,8 +9,14 @@
  */
 public class DatabaseItem 
 {
+    
     private static String[] listItem; //variabel yang dipakai
-    private static Item item;
+    public Item ItemDB;
+    
+    enum ItemCategory{  Electronics,Furniture,Stationery;}
+    enum ItemStatus {New,Second,Refurbished,Sold;}
+    enum InvoiceStatus{Paid,Unpaid,Installment;}
+    
     public boolean addItem (Item item) {//Menambah Item
       return false;
     }
@@ -26,7 +34,7 @@ public class DatabaseItem
      */
     
     public Item getItem(){ //Menampilkan item
-        return item;
+        return ItemDB;
     }
     /** Metode getItem()
      * @return item

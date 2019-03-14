@@ -1,22 +1,32 @@
+package jstore;
+
 
 /**
- * Write a description of class Item here.
+ *Write a description of class Item here.
  *
  * @author Yelli Yulfita
  * @version 27-02-2019
  */
-public class Item
+public class Item 
 {
     
     private int id; //variabel yang dipakai
     private String name;
     private int stock;
     private int price;
-    private String category;
+    private ItemCategory category;
+    
+    private ItemStatus status;
     private Supplier supplier;
     
-     public Item (int id,String name,int stock, int price,String category,
-                 Supplier supplier)  //constructor
+    
+    
+    
+    
+     public Item (int id,String name,int stock, int price,
+                 ItemCategory category,
+                 Supplier supplier,
+                 ItemStatus status) /constructor
     {
         
         this.id=id;
@@ -24,8 +34,27 @@ public class Item
         this.stock=stock;
         this.price=price;
         this.category=category;
+        this.status=status;
         this.supplier=supplier;
     }
+    
+    enum ItemCategory{  Electronics,Furniture,Stationery;}
+    enum ItemStatus {New,Second,Refurbished,Sold;}
+    enum InvoiceStatus{Paid,Unpaid,Installment;}
+    
+    
+      
+     
+        
+    
+   
+   
+    
+    
+        
+    
+    
+        
     
     public int getId() //Menampilkan id
     {
@@ -44,6 +73,30 @@ public class Item
     {
         return name;
     }
+    
+    public ItemCategory getCategory()
+    {
+        return category ;
+    }
+    
+    public ItemStatus getStatus()
+    {
+        return status;
+    }
+    
+  public Supplier getSupplier(){
+             
+  return supplier;
+}
+
+
+
+
+
+
+    
+    
+    
     
     /**
      * Metode getName()
@@ -70,20 +123,10 @@ public class Item
      * @return price
      */
     
-    public String getCategory()//Menampilkan kategori Item
-    {
-        return category;
-    }
     
-    /**
-     * Metode getCategory()
-     * @return category
-     */
+    
         
-    public Supplier getSupplier()//Menampilkan supplier item
-    {
-        return supplier;
-    }
+    
     
     /**
      * Metode getSupplier()
@@ -123,31 +166,15 @@ public class Item
     {
         this.price=price;
     }
-    
+
+        
+        
     /**
      * Metode setPrice()
      * @param price
      */
         
-    public void setCategory(String category)//Mengganti kategori item
-    {
-        this.category=category;
-    }
     
-    /**
-      * Metode setCategory()
-      * @param category
-      */
-    
-    public void setSupplier(Supplier supplier)//Mengganti supplier item
-    {
-        this.supplier=supplier;
-    }
-    
-    /**
-     * Metode setSupplier()
-     * @param supplier
-     */ 
     
     public void printData()//Mencetak nama Item
     {
@@ -157,6 +184,7 @@ public class Item
      * Metode printData()
      */
     }
+
 
         
         
