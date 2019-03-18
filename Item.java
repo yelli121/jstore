@@ -9,7 +9,7 @@ package jstore;
  */
 public class Item
 {
-    // variabel yang dipakai
+    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private int stock;
