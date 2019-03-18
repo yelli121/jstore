@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Write a description of class Location here.
@@ -9,7 +7,7 @@ package jstore;
  */
 public class Invoice
 {
-    // variabel yang dipakai
+    // instance variables - replace the example below with your own
     private int id;
     private Item item;
     private String date;

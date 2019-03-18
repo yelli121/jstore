@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Enumeration class ItemStatus - write a description of the enum class here

@@ -1,28 +1,35 @@
-package jstore;
-
 
 /**
  * Write a description of class JStore here.
  *
  * @author Yelli Yulfita
- * @version 14 Maret 2019
+ * @version 14-03-2019
  */
 public class JStore
 {
+    // instance variables - replace the example below with your own
     public static void main(String[] args){
-    Anggota anggota1 = new Anggota ("Yelli",StatusAnggota.Active,"ya");
-    Anggota anggota2 = new Anggota ("Yelli",StatusAnggota.Inactive,"ya");
-    Anggota anggota3 = new Anggota("Yelli",StatusAnggota.Out,"ya");
-    
-    System.out.println(anggota1.toString());
-    System.out.println(anggota2.toString());
-    System.out.println(anggota3.toString());
-    
-    
+    Location city = new Location("Serang", "Banten", "Debus");
+    Supplier supplier = new Supplier(1, "Yelli", "yelli.yulfita@ui.ac.id", "087774170558", city);
+    city.printData();
+    supplier.printData();
+    Transaction transaksi = new Transaction();
+      transaksi.orderNewItem(supplier);
+      transaksi.orderSecondItem(supplier);
+      transaksi.orderRefurbishedItem(supplier);
+      transaksi.sellItemPaid(DatabaseItem.getItem());
+      transaksi.sellItemUnpaid(DatabaseItem.getItem());
+      transaksi.sellItemInstallment(DatabaseItem.getItem());
     
     }
 
-   
+    /**
+     * Constructor for objects of class JStore
+     */
+    public JStore()
+    {
+         
+    }
     
    
     
