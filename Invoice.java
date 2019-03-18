@@ -1,124 +1,108 @@
 package jstore;
 
 
-
 /**
- * kelas yang memberikan informasi Invoice barang dengan itemnya.
+ * Write a description of class Location here.
  *
  * @author Yelli Yulfita
- * @version 27-02-2019
+ * @version 14-03-2019
  */
-public class Invoice 
+public class Invoice
 {
-  
-    private int id; //variabel yang dipakai
+    // variabel yang dipakai
+    private int id;
     private Item item;
     private String date;
     private int totalPrice;
-    
-    
-   
-    
-  public Invoice (int id,Item item,String date,int totalPrice) //constructor
-  {
-      this.id=id;
-      this.item=item;
-      this.date=date;
-      this.totalPrice = totalPrice;
+    private int totalItem;
+    private InvoiceStatus status;
+
+    /**
+     * Constructor for objects of class Invoice
+     */
+    public Invoice(int id, Item item, String date, 
+    int totalPrice, int totalItem, InvoiceStatus status)
+    {
+        this.id = id;
+        this.item = item;
+        this.date = date;
+        this.totalPrice = totalPrice;
     }
-    
-    public int getId()//Menampilkan id invoice
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public int getId()
     {
         return id;
     }
     
-    /**
-     * Metode getId()
-     * @return id
-     */
-    
-    public Item getItem() //Menampilkan nama item
+    public Item getItem()
     {
         return item;
     }
-    
-    /**
-     * Metode getItem()
-     * @return item
-     */
     
     public String getDate()
     {
         return date;
     }
     
-    /**
-     * Metode getDate()
-     * @return date
-     */
-    
-    
-    public int getTotalPrice()//Menampilkan total harga
+    public int getTotalPrice()
     {
         return totalPrice;
     }
     
-    /**
-     * Metode getTotalPrice()
-     * @return totalPrice
-     */
-    
-    public void setId(int id)//Mengubah id item
+    public int getTotalItem()
     {
-        this.id=id;
+        return totalItem;
     }
     
-    /**
-     * Metode setId()
-     * @param id
-     */
-    
-    public void setItem(Item item)//Mengubah nama item
+    public InvoiceStatus getInvoiceStatus()
     {
-        this.item=item;
+        return status;
     }
     
-    /**
-     * Metode setItem()
-     * @param item
-     */
-    
-    public void setDate(String date)//Mengubah tanggal
+    public void setId(int id)
     {
-        this.date=date;
+        this.id = id;
     }
     
-    /**
-     * Metode setDate()
-     * @param date
-     */
-            
-    public void setTotalPrice(int totalPrice)//Mengubah total harga
+    public void setItem(Item item)
     {
-        this.totalPrice=totalPrice;
+        this.item = item;
     }
     
-    /**
-     * Metode setTotalPrice()
-     * @param totalPrice
-     */
+    public void setDate(String date)
+    {
+        this.date = date;
+    }
+        
+    public void setTotalPrice(int totalPrice)
+    {
+        this.totalPrice = totalPrice;
+    }
     
+    public void setTotalItem(int totalItem)
+    {
+        this.totalItem = totalItem;
+    }
     
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
     
     public void printData()
     {
-        System.out.println(totalPrice);
+        System.out.println("=====INVOICE dan ID======");
+        System.out.println("Tanggal "+date);
+        System.out.println("Item "+item);
+        System.out.println("Total Item "+totalItem);
+        System.out.println("Total Harga "+totalPrice);
+        System.out.println("Status "+status);
+        
     }
-    /**
-     * Metode printData()
-     */
-    
 }
-
-    
-  

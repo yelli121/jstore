@@ -2,33 +2,31 @@ package jstore;
 
 
 /**
- * Write a description of class Jstore here.
+ * Write a description of class JStore here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yelli Yulfita
+ * @version 14 Maret 2019
  */
-public class Jstore 
+public class JStore
 {
-    public static void main(String[] args)
-    {
-     Location locationme =new Location("Serang","Banten","Pulau Jawa");
-     Supplier supplierme = new Supplier(1,"Yelli","yelli.yulfita@ui.ac.id",
-     "087774170558",locationme);
-     Item itemme = new Item (1,"Yelli",50,51,"Tersedia",supplierme);
-     Invoice voice = new Invoice(2,itemme,"coba",20);
-     supplierme.printData();
-     supplierme.setName("Nanda");
-     itemme.printData();
-     
+    public static void main(String[] args){
+    Anggota anggota1 = new Anggota ("Yelli",StatusAnggota.Active,"ya");
+    Anggota anggota2 = new Anggota ("Yelli",StatusAnggota.Inactive,"ya");
+    Anggota anggota3 = new Anggota("Yelli",StatusAnggota.Out,"ya");
     
-     
-     
-     
-     
+    System.out.println(anggota1.toString());
+    System.out.println(anggota2.toString());
+    System.out.println(anggota3.toString());
+    
+    
+    
     }
-}
+
    
     
+   
+    
+   
+}
 
-            
-
+   

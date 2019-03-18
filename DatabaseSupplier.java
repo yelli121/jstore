@@ -2,59 +2,37 @@ package jstore;
 
 
 /**
- * kelas yang menggunakan database dari supplier.
+ * Write a description of class Location here.
  *
- * @author yelli yulfita
- * @version 27-02-2019
+ * @author Yelli Yulifta
+ * @version 14-03-2019
  */
 public class DatabaseSupplier
 {
-    
-    private String[] listSupplier; //variabel yang dipakai
+    // variabel yang dipakai
+    private String[] listSupplier;
     private Supplier supplier;
+
+    /**
+     * Constructor for objects of class DatabaseSupplier
+     */
+    public static boolean addSupplier(Supplier supplier)
+    {
+        return true;
+    }
+
+    public static boolean removeSupplier(Supplier supplier)
+    {
+        return true;
+    }
     
-public boolean addSupplier(Supplier supplier){ //Menambah supplier
-        return false;
-        
+    public Supplier getSupplier()
+    {
+        return supplier;
+    }
+    
+    public String[] getListSupplier()
+    {
+        return listSupplier;
+    }
 }
-
-/**
- * Metode addSupplier()
- * @return false
- * @param supplier
- */
-
-public boolean removeSupplier (Supplier supplier){ //Menghapus supplier
-        return false;
-}
-
-/**
- * Metode remove Supplier() //M
- * @param supplier
- */
-
-
-public Supplier getSupplier()//Menampilkan nama supplier
-{
-    return supplier;
-}
-
-/**
- * Metode getSupplier()
- * @return supplier
- */
-
-
-public String[] getListSupplier() //Menampilkan list supplier
-{
-    return listSupplier;
-}
-/**
- * Metode getListSupplier()
- * @return listSupplier
- */
-
-}
-
-
-

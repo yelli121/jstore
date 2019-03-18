@@ -5,89 +5,73 @@ package jstore;
  * Write a description of class Location here.
  *
  * @author Yelli Yulfita
- * @version 27-02-2019
+ * @version 14-03-2019
  */
 public class Location
 {
-    
-    private String province; //variabel yang dipakai
+    // instance variables - replace the example below with your own
+    private String province;
     private String description;
-    private String city; 
-    //constructor
-    public Location(String city,String province,String description)
+    private String city;
+
+    /**
+     * Constructor for objects of class Location
+     */
+    public Location(String city, String province, 
+    String description)
     {
-        this.city=city;
-        this.province=province;
-        this.description=description;
+        this.city = city;
+        this.province = province;
+        this.description = description;
     }
-    
-    public String getProvince()//Menampilkan nama provinsi
+
+    /**
+     * @return province digunakan untuk mengembalikan nilai province
+     */
+    public String getProvince()
     {
         return province;
     }
     
     /**
-     * Metode getProvince()
-     * @return province
+     * @return city digunakan untuk mengembalikan nilai city
      */
-    
-    public String getCity()//Menampilkan nama kota
+    public String getCity()
     {
         return city;
     }
     
     /**
-     * Metode getCity()
-     * @return city
+     * @return description digunakan untuk mengembalikan nilai description
      */
-    
-    public String getDescription()//Menampilkan deskripsi lokasi
+    public String getDescription()
     {
         return description;
     }
     
     /**
-     * Metode getDescription()
-     * @return description
+     * @param method digunakan untuk menentukan nilai province
      */
-    
-    public void setProvince(String province)//Mengganti nama provinsi
+    public void setProvince(String province)
     {
-        this.province=province;
+        this.province = province;
     }
     
-    /**
-     * Metode setProvince()
-     * @param province
-     */
-    
-    public void setCity(String city)//Mengganti nama kota
+    public void setCity(String city)
     {
-        this.city=city;
+        this.city = city;
     }
     
-    /**
-     * Metode setCity()
-     * @param city
-     */
-    
-    public void setDescription (String description)//Mengganti deskripsi
-    
+    public void setDescription(String description)
     {
-        this.description=description;
+        this.description = description;
     }
     
-    /**
-     * Metode setDescription()
-     * @param description
-     */
-    
-    public void printData()//Mencetak nama provinsi
+    public void printData()
     {
-        System.out.println(province);
+        System.out.println("=====LOCATION======");
+        System.out.println("Provinsi " + province);
+        System.out.println("Kota : "+city);
+        System.out.println("Deskripsi : "+description);
     }
-    /**
-     * Metode printData()
-     */
 }
-     

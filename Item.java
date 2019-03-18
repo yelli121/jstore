@@ -2,81 +2,67 @@ package jstore;
 
 
 /**
- *Write a description of class Item here.
+ * Write a description of class Location here.
  *
  * @author Yelli Yulfita
- * @version 27-02-2019
+ * @version 14-03-2019
  */
-public class Item 
+public class Item
 {
-    
-    private int id; //variabel yang dipakai
+    // variabel yang dipakai
+    private int id;
     private String name;
     private int stock;
     private int price;
     private ItemCategory category;
-    
     private ItemStatus status;
     private Supplier supplier;
     
-    
-    
-    
-    
-     public Item (int id,String name,int stock, int price,
-                 ItemCategory category,
-                 Supplier supplier,
-                 ItemStatus status) /constructor
+
+    /**
+     * Constructor for objects of class Item
+     */
+    public Item(int id, String name, int stock, 
+    int price, ItemCategory category, ItemStatus status, Supplier supplier)
     {
-        
-        this.id=id;
-        this.name=name;
-        this.stock=stock;
-        this.price=price;
-        this.category=category;
-        this.status=status;
-        this.supplier=supplier;
+        this.id = id;
+        this.name = name;
+        this.stock = stock;
+        this.status = status;
+        this.price = price;
+        this.supplier = supplier;
+        this.category = category;
     }
-    
-    enum ItemCategory{  Electronics,Furniture,Stationery;}
-    enum ItemStatus {New,Second,Refurbished,Sold;}
-    enum InvoiceStatus{Paid,Unpaid,Installment;}
-    
-    
-      
-     
-        
-    
-   
-   
-    
-    
-        
-    
-    
-        
-    
-    public int getId() //Menampilkan id
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public int getId()
     {
         return id;
     }
     
-    /**
-     * Metode getId()
-     * @return id
-     */
-        
-    
-        
-        
-    public String getName()//Menampilkan nama item
+    public String getName()
     {
-        return name;
+        return name;     
+    }
+    
+    public int getStock()
+    {
+        return stock;
+    }
+    
+    public int getPrice()
+    {
+        return price;
     }
     
     public ItemCategory getCategory()
     {
-        return category ;
+       return category;
     }
     
     public ItemStatus getStatus()
@@ -84,123 +70,61 @@ public class Item
         return status;
     }
     
-  public Supplier getSupplier(){
-             
-  return supplier;
+    public Supplier getSupplier()
+    {
+        return supplier;
+    }
+    
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    public void setStock(int stock)
+    {
+        this.stock = stock;
+    }
+    
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+    
+    public void setCategory(ItemCategory category)
+    {
+        this.category = category;
+    }
+    
+    public void setStatus(ItemStatus status)
+    {
+        this.status = status;
+    }
+    
+    public void setSupplier(Supplier supplier)
+    {
+        this.supplier = supplier;
+    }
+    
+    public void printData()
+    {
+        System.out.println("=========ITEM dan ID========");
+        System.out.println("Nama: " +name);
+        System.out.println("ID: "+id);
+        System.out.println("Stok: "+stock);
+        System.out.println("Kategori: "+category);
+        System.out.println("Status: "+status);
+        System.out.println("Supplier: "+supplier);
+    }
+    
 }
-
-
-
-
-
+    
+    
 
     
-    
-    
-    
-    /**
-     * Metode getName()
-     * @return name
-     */
-        
-    public int getStock()//Menampilkan stock Item
-    {
-        return stock;
-    }
-    
-    /**
-     * Metode getStock()
-     * @return stock
-     */ 
-    
-    public int getPrice()//Menampilkan harga Item
-    {
-        return price;
-    }
-    
-    /**
-     * Metode getPrice()
-     * @return price
-     */
-    
-    
-    
-        
-    
-    
-    /**
-     * Metode getSupplier()
-     * @return supplier
-     */
-    public void setId(int id)//Mengganti id
-    {
-        this.id=id;
-    }
-    
-    /**
-     * Metode setId()
-     * @param id
-     */
-        
-    public void setName(String name)//Mengganti nama Item
-    {
-        this.name=name;
-    }
-    
-    /**
-     * Metode setName()
-     * @param name
-     */  
-    
-    public void setStock(int stock)//Mengganti stock Item
-    {
-        this.stock=stock;
-    }
-    
-    /**
-     * Metode setStock()
-     * @param stock
-     */
-        
-    public void setPrice(int price)//Mengganti harga item
-    {
-        this.price=price;
-    }
-
-        
-        
-    /**
-     * Metode setPrice()
-     * @param price
-     */
-        
-    
-    
-    public void printData()//Mencetak nama Item
-    {
-         System.out.println(name);
-    }
-    /**
-     * Metode printData()
-     */
-    }
-
-
-        
-        
-            
-        
-      
-    
-        
-        
-        
-    
-        
-        
-
-
-       
-   
     
 

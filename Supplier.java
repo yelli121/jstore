@@ -1,137 +1,90 @@
 package jstore;
 
 
-
 /**
- * Kelas yang berisi informasi supplier beserta lokasi.
+ * Write a description of class Location here.
  *
  * @author Yelli Yulfita
- * @version 27-02-2019
+ * @version 14-03-2019
  */
-public class Supplier  
+public class Supplier
 {
-    private int id; //variabel yang dipakai
+    // instance variables - replace the example below with your own
+    private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
-    
-    public Supplier(int id,String name,String email,String phoneNumber,Location
-    location) //Constructor
+
+    /**
+     * Constructor for objects of class Supplier
+     */
+    public Supplier(int id, String name, String email, 
+    String phoneNumber, Location location)
     {
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.phoneNumber=phoneNumber;
-        this.location=location;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
-    
-    public int getId() //Menampilkan id supplier
+   
+    public int getId()
     {
         return id;
     }
     
-    /**
-     * Metode getId()
-     * @param return id
-     */
-    
-    public String getName()//Menampilkan nama supplier
+    public String getName()
     {
         return name;
     }
     
-    /**
-     * Metode getName()
-     * @return name
-     */
-    
-    public String getEmail()//Menampilkan email supplier
+    public String getEmail()
     {
         return email;
     }
     
-    /**
-     * Metode getEmail()
-     * @return email
-     */
-    
-    public String getPhoneNumber()//Menampilkan nomor telepon supplier
+    public String getPhoneNumber()
     {
         return phoneNumber;
     }
-    
-    /**
-     * Metode getPhoneNumber()
-     * @return phoneNumber
-     */
-     
-    public Location getLocation()//Menampilkan lokasi supplier
+       
+    public Location getLocation()
     {
         return location;
     }
     
-    /**
-     * Metode getLocation()
-     * @return location
-     */
-    
-    public void setIde(int id)// Mengubah id supplier
+    public void setId(int id)
     {
-        this.id=id;
+        this.id = id;
     }
     
-    /**
-     * Metode setId()
-     * @param id
-     */
-    
-    public void setName(String name)//Mengubah nama supplier
+    public void setName(String name)
     {
-        this.name=name;
+        this.name = name;
     }
     
-    /**
-     * Metode setName()
-     * @param name
-     */
-    
-    public void setEmail(String email)//Mengubah email supplier
+    public void setEmail(String email)
     {
-        this.email=email;
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
     }
     
-    /**
-     * Metode setEmail()
-     * @param name
-     */
-    
-     public void setPhoneNumber(String phoneNumber)//Mengubah nomor telepon 
+    public void setLocation(Location location)
     {
-        this.phoneNumber=phoneNumber;
+        this.location = location;
     }
     
-    /**
-     * Metode setPhoneNumber
-     * @param phoneNumber
-     */
-    
-    public void setLocation(Location location)//Mengubah lokasi supplier
+    public void printData()
     {
-        this.location=location;
+        System.out.println("=====SUPPLIER=====");
+        System.out.println("Nama:  " + name);
+        System.out.println("Email: "+email);
+        System.out.println("Nomor Telepon: :"+phoneNumber);
+        System.out.println("Lokasi : "+ location);
     }
-   
-    /**
-     * Metode setLocation()
-     * @param location
-     */
-    
-    public void printData()//Mencetak nama supplier
-    {
-        System.out.println(name);
-    }
-    /**
-     * Metode printData()
-     */
-    
 }
