@@ -4,12 +4,12 @@ package jstore;
 /**
  * Write a description of class Location here.
  *
- * @author Yelli Yulfita
+ * @author Yelli Yulifta
  * @version 14-03-2019
  */
 public class DatabaseSupplier
 {
-    // instance variables - replace the example below with your own
+    // variabel yang dipakai
     private String[] listSupplier;
     private Supplier supplier;
 
