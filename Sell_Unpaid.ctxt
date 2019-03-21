@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Sell_Unpaid
+comment1.params=id\ item\ date\ totalItem\ totalPrice
+comment1.target=Sell_Unpaid(int,\ Item,\ java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=InvoiceStatus\ getInvoiceStatus()
+comment3.params=
+comment3.target=InvoiceType\ getInvoiceType()
+comment4.params=
+comment4.target=java.lang.String\ getDueDate()
+comment5.params=
+comment5.target=void\ printData()
+numComments=6

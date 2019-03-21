@@ -1,36 +1,62 @@
-
 /**
- * Write a description of class Location here.
+ * Kelas digunakan sebagai informasi database dari item
  *
  * @author Yelli Yulfita
- * @version 14-03-2019
+ * @version 28/2/2019
  */
 public class DatabaseItem
 {
-    // instance variables - replace the example below with your own
+    //variabel yang digunakan
     private String[] listItem;
-    private static Item itemDB;
-    
+    private Item item;
+    public static Item itemDB;
 
+    //Menambah item
     /**
-     * Constructor for objects of class DatabaseItem
+     * Method addItem()
+     * @param item
+     * @return false
      */
+    
+    public DatabaseItem()
+    {
+        
+    }
+    
+    
     public static boolean addItem(Item item)
     {
-        itemDB = item;
-        return true;
-    }
-
-    public static boolean removeItem(Item item)
-    {
+        item=item;
         return true;
     }
     
-    public static Item getItem()
+    //Mengapus item
+    /**
+     * Method removeItem()
+     * @param item
+     * @return false
+     */
+    
+    public static boolean removeItem(Item item)
+    {
+        return false;
+    }
+    
+    //Menampilkan item
+    /**
+     * Method getItem()
+     * @return item
+     */
+    public Item getItem()
     {
         return itemDB;
     }
     
+    //Menampilkan list item
+    /**
+     * Method getItemDatabase()
+     * @return listItem
+     */
     public String[] getItemDatabase()
     {
         return listItem;

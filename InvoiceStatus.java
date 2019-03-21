@@ -1,16 +1,18 @@
 
 /**
- * Enumeration class InvoiceStatus - write a description of the enum class here
- *
  * @author Yelli Yulfita
- * @version 14-03-2019
- */
+ * @version 21-03-2019
+**/
+
+
+
 public enum InvoiceStatus
 {
-    Paid, Unpaid, Installment{
-        public String toString(){
-            return "Paid, Unpaid, Installment";
-        }
+    PAID("Paid"), UNPAID("Unpaid"), INSTALLMENT("Installment");
+    private String value;
+    
+    private InvoiceStatus(String value)
+    {
+        this.value=value;
+    }
 }
-}
-

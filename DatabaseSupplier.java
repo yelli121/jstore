@@ -1,35 +1,58 @@
+/**
+ * @author Yelli Yulfita
+ * @version 21-03-2019
+
+**/
 
 /**
- * Write a description of class Location here.
+ * Kelas digunakan sebagai informasi database dari supplier
  *
- * @author Yelli Yulfita
- * @version 14-03-2019
+ * @author Jihad Rafsanjani
+ * @version 28/2/2019
  */
 public class DatabaseSupplier
 {
-    // instance variables - replace the example below with your own
+    //variabel yang dipakai
     private String[] listSupplier;
-    private Supplier supplier;
+    private static Supplier supplier;
 
+    //Menambah supplier
     /**
-     * Constructor for objects of class DatabaseSupplier
+     * Method addSupplier()
+     * @param supplier
+     * @return false
      */
     public static boolean addSupplier(Supplier supplier)
     {
-        return true;
-    }
-
-    public static boolean removeSupplier(Supplier supplier)
-    {
-        return true;
+        return false;
     }
     
+    //Menghapus supplier
+    /**
+     * Method remove Supplier()
+     * @param supplier
+     */
+    public static void removeSupplier(Supplier supplier)
+    {
+        
+    }
+    
+    //Menampilkan nama supplier
+    /**
+     * Method getSupplier()
+     * @return supplier
+     */
     public Supplier getSupplier()
     {
         return supplier;
     }
     
-    public String[] getListSupplier()
+    //Menampilkan list supplier
+    /**
+     * Method getListSupplier()
+     * @return listSupplier
+     */
+    public String[] getListSupllier()
     {
         return listSupplier;
     }

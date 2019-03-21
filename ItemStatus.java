@@ -1,18 +1,10 @@
-
-/**
- * Enumeration class ItemStatus - write a description of the enum class here
- *
- * @author Yelli Yulfita
- * @version 14-03-2019
- */
 public enum ItemStatus
 {
-    New, Second, Refurbished, Sold{
+    NEW("New"), SECOND("Second"), REFURBISHED("Refurbished"), SOLD("Sold");
+    private String value;
     
-public String toString()
-{
-    return "New, Second, Refurbished, Sold";
+    private ItemStatus(String value)
+    {
+        this.value=value;
+    }
 }
-}
-}
-
