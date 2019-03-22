@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * @author Yelli Yulfita

@@ -1,3 +1,5 @@
+package jstore;
+
 /**
  * @author Yelli Yulfita
  * @version 21-03-2019

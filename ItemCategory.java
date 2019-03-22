@@ -1,3 +1,5 @@
+package jstore;
+
 public enum ItemCategory
 {
     ELECTRONICS("Electronics"), FURNITURE("Furniture"), STATIONERY("Stationery");

@@ -1,3 +1,5 @@
+package jstore;
+
 /**
  * Kelas digunakan sebagai informasi database dari item
  *
