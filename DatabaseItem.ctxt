@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DatabaseItem
-comment0.text=\r\n\ Kelas\ digunakan\ sebagai\ informasi\ database\ dari\ item\r\n\r\n\ @author\ Jihad\ Rafsanjani\r\n\ @version\ 28/2/2019\r\n
+comment0.text=\r\n\ Kelas\ digunakan\ sebagai\ informasi\ database\ dari\ item\r\n\r\n\ @author\ Yelli\ Yulfita\r\n\ @version\ 28/2/2019\r\n
 comment1.params=
 comment1.target=DatabaseItem()
 comment1.text=\r\n\ Method\ addItem()\r\n\ @param\ item\r\n\ @return\ false\r\n

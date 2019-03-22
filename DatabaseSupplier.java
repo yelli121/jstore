@@ -1,17 +1,9 @@
-package jstore;
-
 /**
  * @author Yelli Yulfita
  * @version 21-03-2019
 
 **/
 
-/**
- * Kelas digunakan sebagai informasi database dari supplier
- *
- * @author Jihad Rafsanjani
- * @version 28/2/2019
- */
 public class DatabaseSupplier
 {
     //variabel yang dipakai
