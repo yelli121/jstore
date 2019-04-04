@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Write a description of class Buy_Paid here.
@@ -7,15 +5,21 @@ package jstore;
  * @author Yelli Yulfita
  * @version 28-03-2019
  */
-public class Sell_Paid extends Invoice
+public  class Sell_Paid extends Invoice
 {
     private InvoiceType INVOICE_TYPE =  InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS =  InvoiceStatus.PAID;
+    private Customer customer;
     
     
-    public Sell_Paid(int id, Item item, String date, int totalItem, int totalPrice)
+    public Sell_Paid(int id, Item item, int totalItem, int totalPrice,Customer customer)
     {
-       super(id, item, date, totalItem, totalPrice);        
+       super(id, item, totalItem, totalPrice);   
+       
+    }
+    
+    public Customer getCustomer(){
+        return customer;
     }
     
     public InvoiceStatus getInvoiceStatus()
@@ -26,6 +30,9 @@ public class Sell_Paid extends Invoice
     public InvoiceType getInvoiceType()
     {
         return INVOICE_TYPE;
+    }
+    
+    public void setCustomer(Customer customer){
     }
     
     public void printData()
@@ -40,4 +47,8 @@ public class Sell_Paid extends Invoice
         
     }
     
+     public String toString()
+    {
+        return "";
+    }
 }

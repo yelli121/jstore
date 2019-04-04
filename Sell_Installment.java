@@ -1,5 +1,3 @@
-package jstore;
-
 /**
  * @author Yelli Yulfita
  * @version 21-03-2019
@@ -7,19 +5,21 @@ package jstore;
 
 
 
-public class Sell_Installment extends Invoice
+public  class Sell_Installment extends Invoice
 {
     private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.INSTALLMENT;
     private int installmentPeriod;
     private int installmentPrice;
+    private Customer customer;
 
     /**
      * Constructor for objects of class Buy_Paid
      */
-    public Sell_Installment (int id, Item item, String date, int totalItem, int totalPrice, int installmentPeriod)
+    public Sell_Installment (int id, Item item, int totalItem, int totalPrice, int installmentPeriod,
+    Customer customer)
     {
-        super(id, item, date, totalItem, totalPrice);
+        super(id , item, totalItem, totalPrice);
         this.installmentPeriod=installmentPeriod;
     }
 
@@ -39,6 +39,11 @@ public class Sell_Installment extends Invoice
         return installmentPrice;
     }
     
+    public Customer getCustomer(){
+        return customer;
+    }
+    
+    
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
@@ -56,7 +61,13 @@ public class Sell_Installment extends Invoice
     public void setTotalPrice(){
         totalPrice=installmentPrice*installmentPeriod;
     }
+    
+    public void setCustomer(Customer customer)
+    {
+    }
+    
 
+    
     public void printData()
     {
          System.out.println("==========INVOICE=======");
@@ -67,4 +78,11 @@ public class Sell_Installment extends Invoice
         System.out.println("Status :" + getInvoiceStatus());
         System.out.println("Installment Price :" + installmentPrice);
     }
+    
+    
+   public String toString()
+    {
+        return "";
+    }
+    
 }

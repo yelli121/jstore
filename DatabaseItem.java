@@ -1,5 +1,3 @@
-package jstore;
-
 /**
  * Kelas digunakan sebagai informasi database dari item
  *
@@ -9,7 +7,7 @@ package jstore;
 public class DatabaseItem
 {
     //variabel yang digunakan
-    private String[] listItem;
+    private Item[] listItem;
     private Item item;
     public static Item itemDB;
 
@@ -59,7 +57,7 @@ public class DatabaseItem
      * Method getItemDatabase()
      * @return listItem
      */
-    public String[] getItemDatabase()
+    public Item[] getItemDatabase()
     {
         return listItem;
     }

@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * @author Yelli Yulfita
@@ -17,4 +15,10 @@ public enum InvoiceStatus
     {
         this.value=value;
     }
+    
+    public String toString()
+    {
+        return value;
+    }
+    
 }

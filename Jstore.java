@@ -1,5 +1,3 @@
-package jstore;
-
 /**
  * @author Yelli Yulfita
  * @version 21-03-2019
@@ -30,6 +28,8 @@ package jstore;
         Transaction.sellItemPaid(item);
         Transaction.sellItemUnpaid(item);
         Transaction.sellItemInstallment(item);
+        
+        
         
     }
 }

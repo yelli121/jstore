@@ -1,6 +1,4 @@
-package jstore;
-
-public class Item
+public  class Item
 {
     private int id;
     private String name;
@@ -164,4 +162,8 @@ public class Item
         
     }
     
+     public String toString()
+    {
+        return "";
+    }
 }

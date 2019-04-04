@@ -1,5 +1,3 @@
-package jstore;
-
 
 /**
  * Kelas digunakan sebagai informasi supplier dengan lokasinya

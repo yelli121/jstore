@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=InvoiceType
+comment0.text=\r\n\ @author\ Yelli\ Yulfita\r\n\ @version\ 21-03-2019\r\n
 comment1.params=type
 comment1.target=InvoiceType(java.lang.String)
 comment2.params=

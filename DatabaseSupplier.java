@@ -1,5 +1,3 @@
-package jstore;
-
 /**
  * @author Yelli Yulfita
  * @version 21-03-2019
@@ -9,7 +7,7 @@ package jstore;
 public class DatabaseSupplier
 {
     //variabel yang dipakai
-    private String[] listSupplier;
+    private Supplier[] listSupplier;
     private static Supplier supplier;
 
     //Menambah supplier
@@ -48,7 +46,7 @@ public class DatabaseSupplier
      * Method getListSupplier()
      * @return listSupplier
      */
-    public String[] getListSupllier()
+    public Supplier[] getListSuplier()
     {
         return listSupplier;
     }
