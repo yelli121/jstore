@@ -1,3 +1,5 @@
+package jstore;
+
 public enum ItemStatus
 {
     NEW("New"), SECOND("Second"), REFURBISHED("Refurbished"), SOLD("Sold");
