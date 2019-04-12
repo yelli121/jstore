@@ -1,15 +1,8 @@
 
+import java.util.regex.*;
 import java.util.*;
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/**
- * Write a description of class Customer here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+
 public class Customer
 {
     // instance variables - replace the example below with your own
@@ -19,26 +12,30 @@ public class Customer
     private String password;
     private int id;
     private Calendar birthDate;
+    
     /**
      * Constructor for objects of class Customer
      */
-    public Customer(String name, String email, String username, String password,int id,Calendar birthDate)
+    public Customer(String name,String email,String username,String password,Calendar birthDate)
     {
-       this.name = name;
-       this.email = email;
-       this.username = username;
-       this.password = password;
-       this.id = id;
-       this.birthDate = birthDate;
+        // initialise instance variables
+        this.name=name;
+        this.email=email;
+        this.username=username;
+        this.password=password;
+        id=DatabaseCustomer.getLastCustomer()+1;
+        this.birthDate=birthDate;
     }
-    public Customer(String name, String email, String username, String password,int id,int year, int month, int dayOfMonth)
+    
+    public Customer(String name,String email,String username,String password,int id,int year,int month,int dayOfMonth)
     {
-       this.name = name;
-       this.email = email;
-       this.username = username;
-       this.password = password;
-       this.id = id;
-       this.birthDate = new GregorianCalendar(year, month, dayOfMonth);
+        // initialise instance variables
+        this.name=name;
+        this.email=email;
+        this.username=username;
+        this.password=password;
+        id=DatabaseCustomer.getLastCustomer()+1;
+        this.birthDate=new GregorianCalendar(year,month-1,dayOfMonth);
     }
 
     /**
@@ -51,79 +48,94 @@ public class Customer
     {
         return name;
     }
+    
     public String getEmail()
     {
         return email;
     }
+    
+    public String getUsername()
+    {
+        return username;
+    }
+    
     public String getPassword()
     {
         return password;
     }
+    
     public int getId()
     {
         return id;
     }
-    public Calendar getBirthDate()
+    
+    public Calendar getbirthDate()
     {
-        System.out.printf("%1$s %2$tB %2$tY","Birth date:", birthDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        System.out.println("Birth date: "+sdf.format(birthDate.getTime()));
         return birthDate;
     }
-    
-    /*public Calendar getBirthDate(){
-        System.out.println("Birth Date: " + birthDate.get(Calendar.DATE) + " " + 
-        birthDate.get(Calendar.MONTH) + " " +  birthDate.get(Calendar.YEAR));
-        return birthDate;
-    }*/
     
     public void setName(String name)
     {
-        this.name = name;
+        this.name=name;
     }
+    
     public void setEmail(String email)
     {
-         String emailRegex = "^[a-zA-z0-9_+&*-]+(?:\\."+
-                            "[a-zA-z0-9_+&*-]+)*@" +
-                            "(?:[a-zA-z0-9-]+\\.)+[a-z" +
-                            "A-Z]{2,7}$";
-        Pattern pat = Pattern.compile(emailRegex);
-        Matcher matcher = pat.matcher(email);
-        if (matcher.matches())
-        {
+        String pattern =  "^([a-zA-Z0-9(&*_~)]+([.])?)+[a-zA-Z0-9(&*_~)]+@([a-zA-Z0-9]+[-]?[a-zA-Z0-9]+)+([.]([a-zA-Z0-9]+))+$";
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(email);
+        if (m.find()) {
+            System.out.println("Email : " + m.group());
+            this.email = email;
+        } else {
+            System.out.println("Email : null");
             this.email = email;
         }
-        else 
-        {
-            this.email = null;
-        }
     }
+    
     public void setUsername(String username)
     {
-        this.username = username;
+        this.username=username;
     }
+    
     public void setPassword(String password)
     {
-        String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
+        String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z_0-9]{6,}$";
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(password);
         if(m.find()){
             System.out.println("Password: " + m.group());
+            this.password = password;
         }else{
             System.out.println("Password: NULL");
+            this.password = "NULL";
         }
     }
+    
     public void setId(int id)
     {
-        this.id = id;
+        this.id=id;
     }
+    
     public void setBirthDate(Calendar birthDate)
     {
-        this.birthDate = birthDate;
+        this.birthDate=birthDate;
     }
-    public void setBirthDate(int year, int month, int dayOfMonth)
+    
+    public void setBirthDate(int year,int month,int dayOfMonth)
     {
+        this.birthDate=new GregorianCalendar(year,month-1,dayOfMonth);
     }
+    
     public String toString()
     {
-        return "";
+        return "===Customer==="+
+        "\nId: "+id+
+        "\nNama: "+name+
+        "\nUsername: "+username+
+        "\nEmail: "+email+
+        "\nPassword: "+password;
     }
 }

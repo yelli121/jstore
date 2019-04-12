@@ -84,12 +84,11 @@ public class Location
     /**
      * Method printData()
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println("==========LOCATION==========");
-        System.out.println("Provinsi: " + province);
-        System.out.println("Kota: " + city);
-        System.out.println("Deskripsi: " + description);
-        
+        return "========LOCATION========"+
+        "\nprovinsi:"+province+
+        "\nkota:"+city+
+        "\ndeskripsi:"+description;
     }
 }

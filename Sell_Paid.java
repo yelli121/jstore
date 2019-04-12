@@ -5,20 +5,32 @@
  * @author Yelli Yulfita
  * @version 28-03-2019
  */
-public  class Sell_Paid extends Invoice
+import java.util.ArrayList;
+public class Sell_Paid extends Invoice
 {
-    private InvoiceType INVOICE_TYPE =  InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS =  InvoiceStatus.PAID;
+    static final private InvoiceType INVOICE_TYPE=InvoiceType.Sell;
+    static final private InvoiceStatus INVOICE_STATUS=InvoiceStatus.Paid;
     private Customer customer;
+    private boolean isActive;
     
-    
-    public Sell_Paid(int id, Item item, int totalItem, int totalPrice,Customer customer)
+    /**
+     * Constructor for objects of class Buy_Paid
+     */
+    public Sell_Paid(ArrayList<Integer> item, Customer customer)
     {
-       super(id, item, totalItem, totalPrice);   
-       
+        super(item);
+        this.customer=customer;
+        isActive=false;
     }
-    
-    public Customer getCustomer(){
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public Customer getCustomer()
+    {
         return customer;
     }
     
@@ -32,23 +44,34 @@ public  class Sell_Paid extends Invoice
         return INVOICE_TYPE;
     }
     
-    public void setCustomer(Customer customer){
+    public void setCustomer(Customer customer)
+    {
+        this.customer=customer;
     }
     
-    public void printData()
+    public void setInvoiceStatus(InvoiceStatus status)
     {
-        System.out.println("==========INVOICE=======");
-        System.out.println("ID :" + getId());
-        System.out.println("Date :" + getDate());
-        System.out.println("Item yang terdapat :" + getItem().getName());
-        
-        System.out.println("Total harga :" + totalPrice);
-        System.out.println("Status :" + getInvoiceStatus());
-        
     }
     
-     public String toString()
+    public String toString()
     {
-        return "";
+        String string="==========INVOICE=======";
+        string += "\nID ="+getId();
+        string += "\nBuy date =" + getDate();
+        for (Integer invoice : getItem())
+        {
+            Item item = DatabaseItem.getItemFromID(invoice.intValue());
+            string += "\nItem: " + item.getName();
+            string += "\nAmount: " + getItem().size();
+            string += "\nPrice: " + item.getPrice();
+            string += "\nSupplier ID: " + item.getSupplier().getId();
+            string += "\nSupplier Name: " + item.getSupplier().getName();
+        }
+        string += "\nPrice Total: " + getTotalPrice();
+        string += "\nCustomer ID: " + customer.getId();
+        string += "\nCustomer Name: " + customer.getName();
+        string += "\nStatus: " + INVOICE_STATUS;
+        string += "\nSell Success";
+        return string;
     }
 }

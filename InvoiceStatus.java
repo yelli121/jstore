@@ -4,21 +4,18 @@
  * @version 21-03-2019
 **/
 
-
-
 public enum InvoiceStatus
 {
-    PAID("Paid"), UNPAID("Unpaid"), INSTALLMENT("Installment");
+    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
     private String value;
-    
-    private InvoiceStatus(String value)
-    {
-        this.value=value;
-    }
     
     public String toString()
     {
         return value;
     }
     
+    InvoiceStatus(String value)
+    {
+        this.value=value;
+    }
 }

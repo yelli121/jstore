@@ -5,6 +5,8 @@
  * @author Yelli Yulfita
  * @version 28/2/2019
  */
+
+import java.util.regex.*;
 public class Supplier
 {
     //variabel yang dipakai
@@ -15,9 +17,9 @@ public class Supplier
     private Location location;
 
     //Konstruktor dari kelas Supplier
-    public Supplier(int id, String name, String email, String phoneNumber, Location location)
+    public Supplier(String name, String email, String phoneNumber, Location location)
     {
-        this.id=id;
+        id=DatabaseSupplier.getLastSupplierID()+1;
         this.name=name;
         this.email=email;
         this.phoneNumber=phoneNumber;
@@ -111,8 +113,22 @@ public class Supplier
      */
     public void setPhoneNumber(String phoneNumber)
     {
-        this.phoneNumber=phoneNumber;
+        {
+            
+         String pattern = "\\+62\\ [0-9]{9,16}$";
+        if (Pattern.matches(pattern,phoneNumber)){
+            System.out.println("phoneNumber benar");
+            this.phoneNumber=phoneNumber;}
+        else{
+            System.out.println("phoneNumber salah");
+            this.phoneNumber ="NULL";}
+        }
+        
     }
+    
+    
+
+
     
     //Mengubah lokasi supplier
     /**
@@ -128,14 +144,13 @@ public class Supplier
     /**
      * Method printData()
      */
-    public void printData()
+    public String toString()
     {
-      System.out.println("==========Supplier==========");
-        System.out.println("ID: " + id);
-        System.out.println("Nama: " + name);
-        System.out.println("Email: " + email);
-        System.out.println("Nomor Telepon:  " + phoneNumber);
-        System.out.println("Lokasi: " + location);
-           
+        return "SUPPLIER"+
+        "\nID: " + id+
+        "\nName: " + name+
+        "\nEmail: " + email+
+        "\nPhone Number: " + phoneNumber+
+        "\nLocation: " + location.getCity();
     }
 }
