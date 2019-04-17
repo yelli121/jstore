@@ -7,121 +7,148 @@
 import java.util.ArrayList;
 public class DatabaseItem
 {
-    //variabel yang dipakai
-    private static ArrayList<Item> ITEM_DATABASE=new ArrayList<Item>();
+    // instance variables - replace the example below with your own
+    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
     private static int LAST_ITEM_ID=0;
+    
 
-    //Menambah item
     /**
-     * Method addItem()
-     * @param item
-     * @return true
+     * Constructor yang digunakan pada class invoice berguna untuk mengassign nilai variabel local ke variabel global
      */
+    public DatabaseItem()
+    {
+        // initialise instance variables
+        
+       
+    }
     public static ArrayList<Item> getItemDatabase()
     {
         return ITEM_DATABASE;
     }
-    
-    //Mengapus item
-    /**
-     * Method removeItem()
-     * @param item
-     * @return true
-     */
     public static int getLastItemID()
     {
         return LAST_ITEM_ID;
     }
-    
-    //Menampilkan item
-    /**
-     * Method getItem()
-     * @return item
+   /**
+     * methode yang berguna untuk menset nilai item
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel item
+     * @param parameter yang digunakan pada method ini adalah item 
      */
     public static boolean addItem(Item item)
     {
-        boolean value=false;
-        for(Item itemDB : ITEM_DATABASE)
+        boolean found = false;
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(item.getName()!=itemDB.getName()&&item.getStatus()!=itemDB.getStatus()&&item.getSupplier()!=itemDB.getSupplier())
+            if(temp.getName() == item.getName() && temp.getStatus() == item.getStatus()
+            && temp.getSupplier() == item.getSupplier()) 
             {
-            ITEM_DATABASE.add(item);
-            //tambahan
-            LAST_ITEM_ID=item.getId();
-            value=true;
+                return false;
             }
         }
-        return value;
+        ITEM_DATABASE.add(item);
+        LAST_ITEM_ID = item.getId();
+       
+        return true;
     }
-    
-    //Menampilkan list item
     /**
-     * Method getItemDatabase()
-     * @return listItem
+     * methode yang berguna untuk mengambil nilai supplie
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel  supplier dan menggunakan tipe data boolean
+     * @param parameter yang digunakan pada method ini adalah item 
+     */
+    public static boolean removeItem(int id)
+    {
+        for(Item temp : ITEM_DATABASE) 
+        {
+            if(temp.getId() == id) 
+            {
+                ITEM_DATABASE.remove(temp);
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * methode yang berguna untuk mengambil nilai itemdatabase
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel listitem
      */
     public static Item getItemFromID(int id)
     {
-        Item value=null;
-        for(Item itemDB : ITEM_DATABASE)
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(itemDB.getId()==id)
+            if(temp.getId() == id) 
             {
-                value=itemDB;
+                return temp;
             }
         }
-        return value;
+        return null;
     }
-    
     public static ArrayList<Item> getItemFromSupplier(Supplier supplier)
     {
-        ArrayList<Item> value=null;
-        for(Item itemDB : ITEM_DATABASE)
+        ArrayList<Item> list = new ArrayList<Item>();
+        boolean found = false;
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(itemDB.getSupplier()==supplier)
+            if(temp.getSupplier() == supplier) 
             {
-                value.add(itemDB);
+                list.add(temp);
+                found = true;
             }
         }
-        return value;
+        if(found)
+        {
+            return list;
+        }
+        else
+        {
+            return null;
+        }
     }
-    
-    public static ArrayList<Item> getItemFromCategory(Item category)
+    public static ArrayList<Item> getItemFromCategory(ItemCategory category)
     {
-        ArrayList<Item> value=null;
-        for(Item itemDB : ITEM_DATABASE)
+        ArrayList<Item> list = new ArrayList<Item>();
+        boolean found = false;
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(itemDB.getCategory()==category.getCategory())
+            if(temp.getCategory() == category) 
             {
-                value.add(itemDB);
+                list.add(temp);
+                found = true;
             }
         }
-        return value;
+        if(found)
+        {
+            return list;
+        }
+        else
+        {
+            return null;
+        }
     }
-    
-    public static ArrayList<Item> getItemFromStatus(Item status)
+    public static ArrayList<Item> getItemFromStatus(ItemStatus status)
     {
-        ArrayList<Item> value=null;
-        for(Item itemDB : ITEM_DATABASE)
+        ArrayList<Item> list = new ArrayList<Item>();
+        boolean found = false;
+        for(Item temp : ITEM_DATABASE) 
         {
-            if(itemDB.getStatus()==status.getStatus())
+            if(temp.getStatus() == status) 
             {
-                value.add(itemDB);
+                list.add(temp);
+                found = true;
             }
         }
-        return value;
+        if(found)
+        {
+            return list;
+        }
+        else
+        {
+            return null;
+        }
     }
+    /**
+     * methode yang berguna untuk mengambil nilai item
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel item
+     */
     
-    public static boolean removeItem(int id)
-    {
-        boolean value=false;
-        for(Item itemDB : ITEM_DATABASE)
-        {
-            if(itemDB.getId()==id)
-            {
-                ITEM_DATABASE.remove(id);
-                value=true;
-            }
-        }
-        return value;
-    }
+    
 }

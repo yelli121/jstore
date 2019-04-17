@@ -8,77 +8,102 @@
 import java.util.ArrayList;
 public class DatabaseInvoice
 {
-    //variabel yang dipakai
-    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
-    private static int LAST_INVOICE_ID=0;
-
-    //Menambah supplier
+    //private Costumer[] listInvoice;
+     private static ArrayList<Invoice> INVOICE_DATABASE=new ArrayList<Invoice>();
+     private static int LAST_INVOICE_ID = 0;
+    /**
+     * Constructor for objects of class DatabaseInvoice
+     */
+    public DatabaseInvoice()
+    {
+        
+    }
+    
+    /**
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
     public static ArrayList<Invoice> getInvoiceDatabase()
     {
         return INVOICE_DATABASE;
     }
     
+    /**
+     * Method untuk mengembalikan list supplier
+     *
+     * @return    list supplier
+     */
     public static int getLastInvoiceID()
     {
         return LAST_INVOICE_ID;
     }
     
     /**
-     * Method addSupplier()
-     * @param supplier
-     * @return false
+     * Method untuk menambahkan supplier kedalam list
+     *
+     * @return    false
      */
     public static boolean addInvoice(Invoice invoice)
     {
         INVOICE_DATABASE.add(invoice);
-        //tambahan
-        LAST_INVOICE_ID=invoice.getId();
         return true;
     }
     
+    /**
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
     public static Invoice getInvoice(int id)
     {
-        Invoice value=null;
-        for(Invoice invoice : INVOICE_DATABASE)
+        for(Invoice temp : INVOICE_DATABASE) 
         {
-            if(invoice.getId()==id)
+            if(temp.getId() == id) 
             {
-                value=invoice;
+                return temp;
             }
         }
-        return value;
+        return null;
     }
     
-    public static Invoice getActiveOrderCustomer(Customer customer)
-    {
-        Invoice value=null;
-        for(Invoice invoice : INVOICE_DATABASE)
-        {
-            if((invoice.getInvoiceStatus()==InvoiceStatus.Installment||invoice.getInvoiceStatus()==InvoiceStatus.Paid)&&invoice.getIsActive()==true)
-            {
-                value=invoice;
-            }  
-        }
-        return value;
-    }
-    
-    //Menghapus supplier
     /**
-     * Method remove Supplier()
-     * @param supplier
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
+    public static Invoice getActiveOrder(Costumer costumer)
+    {
+        for(Invoice temp : INVOICE_DATABASE) 
+        {
+            if((temp.getInvoiceStatus() == InvoiceStatus.Unpaid || 
+            temp.getInvoiceStatus() == InvoiceStatus.Installment) && 
+            temp.getIsActive() == true) 
+            {
+                return temp;
+            }
+        }
+        return null;
+    }
+        
+    /**
+     * Method untuk menghapus supplier dari list
+     *
      */
     public static boolean removeInvoice(int id)
     {
-        boolean value=false;
-        for(Invoice invoice : INVOICE_DATABASE)
+        for(Invoice temp : INVOICE_DATABASE) 
         {
-            if(invoice.getId()==id&&invoice.getIsActive()==true)
+            if(temp.getId() == id) 
             {
-                invoice.setIsActive(false);
-                INVOICE_DATABASE.remove(id);
-                value=true;
+                if(temp.getIsActive() == true) 
+                {
+                    temp.setIsActive(false);
+                    INVOICE_DATABASE.remove(temp);
+                    return true;
+                }
             }
         }
-        return value;
+        return false;
     }
 }

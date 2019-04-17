@@ -3,9 +3,9 @@
     * @author Yelli Yulfita
     * @version 12/04/2019
     */
-public class Item
+   public class Item
 {
-    //variabel yang dipakai
+    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private int stock;
@@ -13,161 +13,147 @@ public class Item
     private ItemCategory category;
     private ItemStatus status;
     private Supplier supplier;
-    
-    //Konstruktor dari kelas Item
-    public Item(String name, int stock, int price, ItemCategory category, ItemStatus status, Supplier supplier)
+
+    /**
+     * @param parameter yang digunakan adalah id, name, stock, price, category, supplier
+     * Constructor yang digunakan pada class supplier berguna untuk mengassign nilai variabel local ke variabel global
+     */
+    public Item(String name, int stock, int price,ItemStatus status,
+    ItemCategory category, Supplier supplier)
     {
-        id=DatabaseItem.getLastItemID()+1;
+        this.id=DatabaseItem.getLastItemID() + 1;
         this.name=name;
         this.stock=stock;
         this.price=price;
         this.category=category;
         this.status=status;
         this.supplier=supplier;
+       
     }
-    
-    //Menampilkan nomor id
+
     /**
-     * Method getId()
-     * @return id
+     * methode yang berguna untuk mengambil nilai id
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel id dan menggunakan tipe data integer
      */
     public int getId()
     {
+        // put your code here
         return id;
     }
     
-    //Menampilkan nama Item
     /**
-     * Method getName()
-     * @return name
+     * methode yang berguna untuk mengambil nilai name
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel name dan menggunakan tipe data String
      */
     public String getName()
     {
+        // put your code here
         return name;
     }
-    
-    //Menampilkan stock Item
     /**
-     * Method getStock()
-     * @return stock
+     * methode yang berguna untuk mengambil nilai stock
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel stock dan menggunakan tipe data integer
      */
     public int getStock()
     {
+        // put your code here
         return stock;
     }
-    
-    //Menampilkan harga Item
     /**
-     * Method getPrice()
-     * @return price
+     * methode yang berguna untuk mengambil nilai price
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel price dan menggunakan tipe data integer
      */
     public int getPrice()
     {
+        // put your code here
         return price;
     }
-    
-    //Menampilkan kategori Item
     /**
-     * Method getCategory()
-     * @return category
+     * methode yang berguna untuk mengambil nilai category
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel category dan menggunakan tipe data String
      */
     public ItemCategory getCategory()
     {
+        // put your code here
         return category;
     }
-    
-    public ItemStatus getStatus()
-    {
-        return status;
-    }
-    
-    //Menampilkan supplier Item
     /**
-     * Method getSupplier()
-     * @return supplier
+     * methode yang berguna untuk mengambil nilai Supplier
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel supplier 
      */
     public Supplier getSupplier()
     {
+        // put your code here
         return supplier;
     }
-    
-    //Mengganti nomor id
+    public ItemStatus getStatus()
+    {
+        // put your code here
+        return status;
+    }
     /**
-     * Method setId()
-     * @param id
+     * methode yang berguna untuk menset nilai id
+     * @param parameter yang digunakan pada method ini adalah id yang menggunakan tipe data integer
      */
     public void setId(int id)
     {
         this.id=id;
     }
-    
-    //Mengganti nama Item
     /**
-     * Method setName()
-     * @param name
+     * methode yang berguna untuk menset nilai name
+     * @param parameter yang digunakan pada method ini adalah name yang menggunakan tipe data String
      */
     public void setName(String name)
     {
         this.name=name;
     }
-    
-    //Mengganti stock Item
     /**
-     * Method setStock()
-     * @param stock
+     * methode yang berguna untuk menset nilai stock
+     * @param parameter yang digunakan pada method ini adalah stock yang menggunakan tipe data integer
      */
     public void setStock(int stock)
     {
         this.stock=stock;
     }
-    
-    //Mengganti harga Item
     /**
-     * Method setPrice()
-     * @param price
+     * methode yang berguna untuk menset nilai price
+     * @param parameter yang digunakan pada method ini adalah price yang menggunakan tipe data integer
      */
     public void setPrice(int price)
     {
         this.price=price;
     }
-    
-    //Mengganti kategori Item
     /**
-     * Method setCategory()
-     * @param category
+     * methode yang berguna untuk menset nilai category
+     * @param parameter yang digunakan pada method ini adalah category yang menggunakan tipe data String
      */
     public void setCategory(ItemCategory category)
     {
         this.category=category;
     }
-    
     public void setStatus(ItemStatus status)
     {
         this.status=status;
     }
-    
-    //Mengganti supplier Item
-    /**
-     * Method setSupplier()
-     * @param supplier
-     */
     public void setSupplier(Supplier supplier)
     {
         this.supplier=supplier;
     }
-    
-    //Mencetak nama Item
     /**
-     * Method printData()
+     * berguna untuk menampilkan data name
      */
     public String toString()
     {
-        return "==========ITEM======="+
-        "\nID :" + id+
-        "\nName :"  + name+
-        "\nStok :" + stock+
-        "\nKategori :" + category+
-        "\nStatus :" + status+
-        "\nSupplier :" + supplier.getName();
+        System.out.println("ITEM");
+        System.out.println("ID" + id);
+        System.out.println("Name" + name);
+        System.out.println("Stock:" + stock);
+        System.out.println("Price:" + price);
+        System.out.println("kategory"+ category);
+        System.out.println("Status"+ status);
+        System.out.println("Supplier" + supplier.getName());
+        return "";
+        
     }
+    
 }

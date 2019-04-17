@@ -10,108 +10,84 @@
 import java.util.ArrayList;
 public class Transaction
 {
-
+    private static ArrayList<Integer> listItem = new ArrayList<Integer>();
+    
+    
     /**
      * Constructor for objects of class Transaction
      */
-    
-    
-    public static void orderNewItem(Item item)
+    public Transaction()
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
-        /*if(beliBaru instanceof Sell_Paid)
-        {
-            System.out.println("Benar, Invoice Type adalah Sell_Paid");
-        }
-        else
-        {
-            System.out.println("Salah, Invoice Type bukan Sell_Paid");
-        }
-        item.printData();
-        beliBaru.printData();*/
+        // initialise instance variables
         
     }
+
     
-    public static void orderSecondItem(Item item)
+    public void orderNewItem(Item item)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
-        /*Invoice beliSecond = new Buy_Paid(1, item, "29/3/2019", item.getStock(), item.getPrice());
-        item.printData();
-        beliSecond.printData();*/
+       listItem.add(item.getId());
+        Invoice order = new Buy_Paid(listItem);
+        DatabaseInvoice.addInvoice(order);
     }
     
-    public static void orderRefurbishItem(Item item)
+    
+    public void orderSecondItem(Item item)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Buy_Paid(itemID);
-        DatabaseInvoice.addInvoice(invoice);
-        /*Invoice beliRefurbish = new Buy_Paid(1, item, "29/3/2019", item.getStock(), item.getPrice());
-        item.printData();
-        beliRefurbish.printData();*/
+         listItem.add(item.getId());
+        Invoice order = new Buy_Paid(listItem);
+        DatabaseInvoice.addInvoice(order);
+
     }
     
-    public static void sellItemPaid(Item item,Customer customer)
+    public void orderRefurbishedItem(Item item)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Sell_Paid(itemID,customer);
-        DatabaseInvoice.addInvoice(invoice);
-        /*Invoice jualLunas = new Sell_Paid(1, item, "29/3/2019", 1, item.getPrice());
-        item.printData();
-        jualLunas.printData();*/
+         listItem.add(item.getId());
+        Invoice order = new Buy_Paid(listItem);
+        DatabaseInvoice.addInvoice(order);
     }
     
-    public static void sellItemUnpaid(Item item,Customer customer)
+     public void sellItemPaid(Item item,Costumer costumer)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Sell_Unpaid(itemID,customer);
-        DatabaseInvoice.addInvoice(invoice);
-        /*Invoice jualBelumLunas = new Sell_Unpaid(1, item, "29/3/2019", 1, item.getPrice(), "29/3/2020");
-        item.printData();
-        jualBelumLunas.printData();*/
+        listItem.add(item.getId());
+        Invoice sellPaid = new Sell_Paid(listItem, costumer);
+        DatabaseInvoice.addInvoice(sellPaid);
     }
     
-    public static void sellItemInstallment(Item item,Customer customer,int installmentPeriod)
+ 
+    public void sellItemUnpaid(Item item,Costumer costumer)
     {
-        ArrayList<Integer> itemID = new ArrayList<Integer>();
-        itemID.add(item.getId());
-        Invoice invoice=new Sell_Installment(itemID,installmentPeriod,customer);
-        DatabaseInvoice.addInvoice(invoice);
-        /*Invoice jualCicil = new Sell_Installment(1, item, "29/3/2019", 1, item.getPrice(),12);
-        item.printData();
-        jualCicil.printData();*/
+           listItem.add(item.getId());
+        Invoice sellUnpaid = new Sell_Unpaid(listItem, costumer);
+        DatabaseInvoice.addInvoice(sellUnpaid);
     }
     
-    public boolean finishTransaction(Invoice invoice)
+    public void sellItemInstallment(Item item,Costumer costumer,int
+    installmentPeriod)
     {
-        boolean value=false;
-        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()){
-            if (invoiceDB.getId()==invoice.getId()){
-                invoice.setIsActive(false);
-                System.out.print(invoice.getIsActive());
-                value=true;
-            }
+        listItem.add(item.getId());
+        Invoice sellInstall = new Sell_Installment(listItem, installmentPeriod, costumer);
+        DatabaseInvoice.addInvoice(sellInstall);
+    }
+     public static boolean finishTransaction(Invoice invoice)
+    {
+        invoice = DatabaseInvoice.getInvoice(invoice.getId());
+        if(invoice == null)
+        {
+            return false;
         }
-        return value;
+        invoice.setIsActive(false);
+        System.out.println("isActive : " + invoice.getIsActive());
+        return true;
     }
-    
-    public boolean cancelTransaction(Invoice invoice)
+    public static boolean cancelTransaction(Invoice invoice)
     {
-        boolean value=false;
-        for (Invoice invoiceDB : DatabaseInvoice.getInvoiceDatabase()){
-               if (invoiceDB.getId()==invoice.getId()){
-                   DatabaseInvoice.removeInvoice(invoice.getId());
-                   value=true;
-               }
-           }
-        return value;
+        invoice = DatabaseInvoice.getInvoice(invoice.getId());
+        if(invoice == null)
+        {
+            return false;
+        }
+        DatabaseInvoice.removeInvoice(invoice.getId());
+        return true;
     }
 }
+    

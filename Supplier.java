@@ -5,152 +5,137 @@
  * @author Yelli Yulfita
  * @version 28/2/2019
  */
-
+import java.util.*;
 import java.util.regex.*;
 public class Supplier
 {
-    //variabel yang dipakai
+    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private String email;
     private String phoneNumber;
     private Location location;
 
-    //Konstruktor dari kelas Supplier
-    public Supplier(String name, String email, String phoneNumber, Location location)
+    /**
+     * @param parameter yang digunakan adalah id, name, email, phone number dan location
+     * Constructor yang digunakan pada class supplier
+     */
+    public Supplier( String name, String email,String phoneNumber,
+    Location location)
     {
-        id=DatabaseSupplier.getLastSupplierID()+1;
+        // initialise instance variables
+        //id = 0;
+        this.id=DatabaseSupplier.getLastSupplierID()+1;
         this.name=name;
         this.email=email;
         this.phoneNumber=phoneNumber;
         this.location=location;
     }
 
-    //Menampilkan nomor id supplier
     /**
-     * Method getId()
-     * @return id
+     * methode yang berguna untuk mengambil nilai id
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel id dan menggunakan tipe data integer
      */
     public int getId()
     {
+        // put your code here
         return id;
     }
     
-    //Menampilkan nama supplier
     /**
-     * Method getName()
-     * @return name
+     * methode yang berguna untuk mengambil nilai naem
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel name dan menggunakan tipe data String
      */
     public String getName()
     {
+        // put your code here
         return name;
     }
-    
-    //Menampilkan email supplier
     /**
-     * Method getEmail()
-     * @return email
+     * methode yang berguna untuk mengambil nilai email
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel email dan menggunakan tipe data String
      */
     public String getEmail()
     {
+        // put your code here
         return email;
     }
     
-    //Menampilkan nomor telepon supplier
     /**
-     * Method getPhoneNumber()
-     * @return phoneNumber
+     * methode yang berguna untuk mengambil nilai phoneNumber
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel phoneNumber dan menggunakan tipe data String
      */
     public String getPhoneNumber()
     {
+        // put your code here
         return phoneNumber;
     }
     
-    //Menampilkan lokasi supplier
+    //public String getCity()
+    //{
+        // put your code here
+    //    return "";
+    //}
     /**
-     * Method getLccation()
-     * @return location
+     * methode yang berguna untuk mengambil nilai phoneNumber
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel phoneNumber 
      */
     public Location getLocation()
     {
         return location;
     }
-    
-    //Mengubah id supplier
     /**
-     * Method setId()
-     * @param id
+     * methode yang berguna untuk menset nilai id
+     * @param parameter yang digunakan pada method ini adalah id yang menggunakan tipe data integer
      */
     public void setId(int id)
     {
+        // put your code here
         this.id=id;
     }
-    
-    //Mengubah nama supplier
     /**
-     * Method setName()
-     * @param name
+     * methode yang berguna untuk menset nilai name
+     * @param parameter yang digunakan pada method ini adalah name yang menggunakan tipe data String
      */
     public void setName(String name)
     {
+        // put your code here
         this.name=name;
     }
-    
-    //Mengubah email supplier
     /**
-     * Method setEmail()
-     * @param email
+     * methode yang berguna untuk menset nilai email
+     * @param parameter yang digunakan pada method ini adalah id yang menggunakan tipe data String
      */
     public void setEmail(String email)
     {
+        // put your code here
         this.email=email;
     }
-    
-    //Mengubah nomor telepon supplier
     /**
-     * Method setPhoneNumber()
-     * @param phoneNumber
+     * methode yang berguna untuk menset nilai phoneNumber
+     * @param parameter yang digunakan pada method ini adalah id yang menggunakan tipe data String
      */
-    public void setPhoneNumber(String phoneNumber)
+    public void setphoneNumber(String phoneNumber)
     {
-        {
-            
-         String pattern = "\\+62\\ [0-9]{9,16}$";
-        if (Pattern.matches(pattern,phoneNumber)){
-            System.out.println("phoneNumber benar");
-            this.phoneNumber=phoneNumber;}
-        else{
-            System.out.println("phoneNumber salah");
-            this.phoneNumber ="NULL";}
-        }
-        
+        // put your code here
+        this.phoneNumber=phoneNumber;
     }
     
     
-
-
-    
-    //Mengubah lokasi supplier
-    /**
-     * Method setLocation()
-     * @param location
-     */
     public void setLocation(Location location)
     {
+        //memasukan nilai dari variabel local location kevariabel global
         this.location=location;
     }
-    
-    //Mencetak nama supplier
-    /**
-     * Method printData()
-     */
     public String toString()
     {
-        return "SUPPLIER"+
-        "\nID: " + id+
-        "\nName: " + name+
-        "\nEmail: " + email+
-        "\nPhone Number: " + phoneNumber+
-        "\nLocation: " + location.getCity();
+        //menampilkan variabel name
+        System.out.println("SUPPLIER");
+        System.out.println("ID" + id);
+        System.out.println("NAMA" + name);
+        System.out.println("EMAIL" + email);
+        System.out.println("NOMOR TELFON" + phoneNumber);
+        System.out.println("Lokasi" + location.getCity());
+        return "";
     }
 }

@@ -7,88 +7,81 @@
  */
 public class Location
 {
-    //variabel yang dipakai
+    // instance variables - replace the example below with your own
     private String province;
     private String description;
     private String city;
 
-    //Konstruktor dari kelas Supplier
+    /**
+     * @param parameter yang digunakan adalah city,province,description
+     * Constructor yang digunakan pada class invoice berguna untuk mengassign nilai variabel local ke variabel global
+     */
     public Location(String city, String province, String description)
     {
+        // initialise instance variables
         this.city=city;
         this.province=province;
         this.description=description;
     }
 
-    //Menampilkan nama provinsi
     /**
-     * Method getProvince()
-     * @return province
+     * methode yang berguna untuk mengambil nilai province
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel province dan menggunakan tipe data String
      */
     public String getProvince()
     {
         return province;
     }
-    
-    //Menampilkan nama kota
     /**
-     * Method getCity()
-     * @return city
+     * methode yang berguna untuk mengambil nilai city
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel city dan menggunakan tipe data String
      */
     public String getCity()
     {
         return city;
     }
-    
-    //Menampilkan deskripsi lokasi
     /**
-     * Method getDescription()
-     * @return description
+     * methode yang berguna untuk mengambil nilai description
+     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel description dan menggunakan tipe data String
      */
     public String getDescription()
     {
         return description;
     }
-    
-    //Mengganti nama provinsi
     /**
-     * Method setProvince()
-     * @param province
+     * methode yang berguna untuk menset nilai province
+     * @param parameter yang digunakan pada method ini adalah province yang menggunakan tipe data String
      */
     public void setProvince(String province)
     {
         this.province=province;
     }
-    
-    //Mengganti nama kota
     /**
-     * Method setCity()
-     * @param city
+     * methode yang berguna untuk menset nilai city
+     * @param parameter yang digunakan pada method ini adalah city yang menggunakan tipe data String
      */
     public void setCity(String city)
     {
         this.city=city;
     }
-    
-    //Mengganti deskripsi lokasi
     /**
-     * Method setDescription()
-     * @param description
+     * methode yang berguna untuk menset nilai description
+     * @param parameter yang digunakan pada method ini adalah description yang menggunakan tipe data String
      */
     public void setDescription(String description)
     {
         this.description=description;
     }
-    
-    //Mencetak nama provinsi
     /**
-     * Method printData()
+     * methode yang berguna untuk menampilkan nilai province
      */
     public String toString()
     {
-        return "========LOCATION========"+
-        "\nprovinsi:"+province+
-        "\nkota:"+city+
-        "\ndeskripsi:"+description;
+        System.out.println("LOCATION");
+        System.out.println("PROVINSI" + province);
+        System.out.println("KOTA" + city);
+        System.out.println("Deskripsi" + description);
+        return "";
+        
     }
 }

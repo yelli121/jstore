@@ -1,10 +1,16 @@
 public enum ItemStatus
 {
-    NEW("New"), SECOND("Second"), REFURBISHED("Refurbished"), SOLD("Sold");
-    private String value;
+    New("New"),Second("Second"),Refurbished("Refurbished"),Sold("Sold");
     
-    private ItemStatus(String value)
+    private String description;
+    
+    private ItemStatus(String description)
     {
-        this.value=value;
+        this.description=description;
+    }
+    
+    public String toString()
+    {
+        return description;
     }
 }

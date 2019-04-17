@@ -4,83 +4,65 @@
 
 **/
 import java.util.ArrayList;
-public class DatabaseSupplier
+   public class DatabaseSupplier
 {
-    //variabel yang dipakai
-    private static ArrayList<Supplier> SUPPLIER_DATABASE=new ArrayList<Supplier>();
-    private static int LAST_SUPPLIER_ID=0;
-
-    //Menambah supplier
+    // instance variables - replace the example below with your own
+    private static ArrayList<Supplier> SUPPLIER_DATABASE = new ArrayList<Supplier>();
+    private static int LAST_SUPPLIER_ID = 0;
+    /**
+     * Constructor yang digunakan pada class invoice berguna untuk mengassign nilai variabel local ke variabel global
+     */
+    public DatabaseSupplier()
+    {
+        
+    }
+    
     public static ArrayList<Supplier> getSupplierDatabase()
     {
         return SUPPLIER_DATABASE;
     }
-    
+   
     public static int getLastSupplierID()
     {
         return LAST_SUPPLIER_ID;
     }
     
-    /**
-     * Method addSupplier()
-     * @param supplier
-     * @return false
-     */
     public static boolean addSupplier(Supplier supplier)
     {
-        boolean value=false;
-        for(Supplier supplierDB : SUPPLIER_DATABASE)
+        for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if(supplier.getName()!=supplierDB.getName()&&supplier.getEmail()!=supplierDB.getEmail()&&supplier.getPhoneNumber()!=supplierDB.getPhoneNumber())
+            if((temp.getName() == supplier.getName()) && 
+            (temp.getEmail() == supplier.getEmail()) && 
+            (temp.getPhoneNumber() == supplier.getPhoneNumber())) 
             {
-            SUPPLIER_DATABASE.add(supplier);
-            LAST_SUPPLIER_ID=supplier.getId();
-            value=true;
+                return false;
             }
         }
-        return value;
+        SUPPLIER_DATABASE.add(supplier);
+        LAST_SUPPLIER_ID++;
+        return true;
     }
-    
-    //Menghapus supplier
-    /**
-     * Method remove Supplier()
-     * @param supplier
-     */
-    //Menampilkan nama supplier
-    /**
-     * Method getSupplier()
-     * @return supplier
-     */
-    public Supplier getSupplier(int id)
+    public static Supplier getSupplier(int id)
     {
-        Supplier value=null;
-        for(Supplier supplierDB : SUPPLIER_DATABASE)
+        for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if(supplierDB.getId()==id)
+            if(temp.getId() == id) 
             {
-                value=supplierDB;
+                return temp;
             }
         }
-        return value;
+        return null;
     }
-    
-    //Menampilkan list supplier
-    /**
-     * Method getListSupplier()
-     * @return listSupplier
-     */
     public static boolean removeSupplier(int id)
     {
-        boolean value=false;
-        for(Supplier supplierDB : SUPPLIER_DATABASE)
+        for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if(supplierDB.getId()==id)
+            if(temp.getId() == id)
             {
-                DatabaseItem.getItemDatabase().removeAll(DatabaseItem.getItemFromSupplier(supplierDB));
-                SUPPLIER_DATABASE.remove(id);
-                value=true;
+                DatabaseItem.getItemFromSupplier(temp).clear();
+                return true;
             }
         }
-        return value;
+        return false;
     }
 }

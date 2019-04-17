@@ -1,5 +1,3 @@
 #BlueJ class context
 comment0.target=ItemCategory
-comment1.params=value
-comment1.target=ItemCategory(java.lang.String)
-numComments=2
+numComments=1

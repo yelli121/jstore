@@ -6,15 +6,16 @@
 
 public enum InvoiceType
 {
-    Buy("Buy"), Sell("Sell");
+    BUY("buy"),SELL("sell");
     
-    String type;
-    InvoiceType(String type){
-    this.type = type;
+    String description;
+    private InvoiceType(String description)
+    {
+        this.description=description;
     }
     
-    public String toString(){
-    return "";
+    public String toString()
+    {
+        return description;
     }
-    
 }
