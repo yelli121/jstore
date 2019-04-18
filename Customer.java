@@ -3,7 +3,7 @@ import java.util.regex.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
-public class Costumer
+public class Customer
 {
     // instance variables - replace the example below with your own
     private String name;
@@ -16,7 +16,7 @@ public class Costumer
     /**
      * Constructor for objects of class Costumer
      */
-    public Costumer(String name,String email,String username,
+    public Customer(String name,String email,String username,
     String password, Calendar birthDate)
     {
         // initialise instance variables
@@ -24,19 +24,19 @@ public class Costumer
         this.email = email;
         this.username = username;
         this.password = password;
-        this.id = DatabaseCostumer.getLastCustomerID() + 1;
+        this.id = DatabaseCustomer.getLastCustomerID() + 1;
         this.birthDate = birthDate;
         
     }
 
-    public Costumer(String name,String email,String username,
+    public Customer(String name,String email,String username,
     String password,int year,int month,int dayOfMonth)
     {
      this.name = name;
      this.email = email;
      this.username = username;
      this.password = password;
-     this.id = DatabaseCostumer.getLastCustomerID() + 1;
+     this.id = DatabaseCustomer.getLastCustomerID() + 1;
      this.birthDate = new GregorianCalendar(year, month, dayOfMonth);
     }
     

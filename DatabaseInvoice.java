@@ -6,17 +6,19 @@
  * @version 04-04-2019
  */
 import java.util.ArrayList;
+
 public class DatabaseInvoice
 {
-    //private Costumer[] listInvoice;
-     private static ArrayList<Invoice> INVOICE_DATABASE=new ArrayList<Invoice>();
-     private static int LAST_INVOICE_ID = 0;
+    // instance variables - replace the example below with your own
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
+    private static int LAST_INVOICE_ID = 0;
+
     /**
      * Constructor for objects of class DatabaseInvoice
      */
     public DatabaseInvoice()
     {
-        
+        // initialise instance variables
     }
     
     /**
@@ -44,9 +46,18 @@ public class DatabaseInvoice
      *
      * @return    false
      */
-    public static boolean addInvoice(Invoice invoice)
+    public static boolean addInvoice(Invoice invoice)throws InvoiceAlreadyExistsException
     {
+        for(Invoice temp : INVOICE_DATABASE)
+        {
+            if((temp.getItem() == invoice.getItem()) ||
+                    (temp.getCustomer() == invoice.getCustomer()))
+            {
+                throw new InvoiceAlreadyExistsException(invoice);
+            }
+        }
         INVOICE_DATABASE.add(invoice);
+        LAST_INVOICE_ID = invoice.getId();
         return true;
     }
     
@@ -59,7 +70,7 @@ public class DatabaseInvoice
     {
         for(Invoice temp : INVOICE_DATABASE) 
         {
-            if(temp.getId() == id) 
+            if(temp.getId() == id)
             {
                 return temp;
             }
@@ -72,25 +83,38 @@ public class DatabaseInvoice
      *
      * @return    objek supplier
      */
-    public static Invoice getActiveOrder(Costumer costumer)
+    public static ArrayList<Invoice> getActiveOrder(Customer customer)throws CustomerDoesntHaveActiveInvoiceException
     {
-        for(Invoice temp : INVOICE_DATABASE) 
+        ArrayList<Invoice> list = new ArrayList<Invoice>();
+        boolean found = false;
+        for(Invoice temp : INVOICE_DATABASE)
         {
-            if((temp.getInvoiceStatus() == InvoiceStatus.Unpaid || 
-            temp.getInvoiceStatus() == InvoiceStatus.Installment) && 
-            temp.getIsActive() == true) 
+            if(temp.getCustomer() == customer &&
+                temp.getIsActive() == true)
             {
-                return temp;
+                list.add(temp);
+                found = true;
+            }
+            else
+            {
+                throw new CustomerDoesntHaveActiveInvoiceException(customer);
             }
         }
-        return null;
+        if(found)
+        {
+            return list;
+        }
+        else
+        {
+            return null;
+        }
     }
         
     /**
      * Method untuk menghapus supplier dari list
      *
      */
-    public static boolean removeInvoice(int id)
+    public static boolean removeInvoice(int id)throws InvoiceNotFoundException
     {
         for(Invoice temp : INVOICE_DATABASE) 
         {
@@ -99,11 +123,11 @@ public class DatabaseInvoice
                 if(temp.getIsActive() == true) 
                 {
                     temp.setIsActive(false);
-                    INVOICE_DATABASE.remove(temp);
-                    return true;
                 }
+                INVOICE_DATABASE.remove(temp);
+                return true;
             }
         }
-        return false;
+        throw new InvoiceNotFoundException(id);
     }
 }

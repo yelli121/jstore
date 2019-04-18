@@ -18,7 +18,7 @@ public abstract class Invoice
     private ArrayList<Integer> item;
     //private int totalItem;
     private boolean isActive;
-    private Costumer costumer;
+    private Customer customer;
     private static InvoiceStatus status;
     
     
@@ -85,9 +85,9 @@ public abstract class Invoice
     {
         return true;
     }
-    public Costumer getCostumer()
+    public Customer getCustomer()
     {
-        return costumer;
+        return customer;
     }
     /*public abstract void setInvoiceStatus(InvoiceStatus status);
     /**
@@ -149,9 +149,9 @@ public abstract class Invoice
         this.isActive = isActive;
     }
     
-    public void setCustomer(Costumer costumer)
+    public void setCustomer(Customer customer)
     {
-        this.costumer = costumer;
+        this.customer = customer;
     } 
     
 }

@@ -4,44 +4,64 @@
 
 **/
 import java.util.ArrayList;
-   public class DatabaseSupplier
+  public class DatabaseSupplier
 {
-    // instance variables - replace the example below with your own
     private static ArrayList<Supplier> SUPPLIER_DATABASE = new ArrayList<Supplier>();
     private static int LAST_SUPPLIER_ID = 0;
+
     /**
-     * Constructor yang digunakan pada class invoice berguna untuk mengassign nilai variabel local ke variabel global
+     * Constructor for objects of class DatabaseSupplier
      */
     public DatabaseSupplier()
     {
-        
+        // initialise instance variables
     }
     
+    /**
+     * Method untuk mengembalikan list supplier
+     *
+     * @return    list supplier
+     */
     public static ArrayList<Supplier> getSupplierDatabase()
     {
         return SUPPLIER_DATABASE;
     }
-   
+    
+    /**
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
     public static int getLastSupplierID()
     {
         return LAST_SUPPLIER_ID;
     }
     
-    public static boolean addSupplier(Supplier supplier)
+    /**
+     * Method untuk menambahkan supplier kedalam list
+     *
+     * @return    false
+     */
+    public static boolean addSupplier(Supplier supplier)throws SupplierAlreadyExistsException
     {
         for(Supplier temp : SUPPLIER_DATABASE) 
         {
-            if((temp.getName() == supplier.getName()) && 
-            (temp.getEmail() == supplier.getEmail()) && 
+            if((temp.getEmail() == supplier.getEmail()) ||
             (temp.getPhoneNumber() == supplier.getPhoneNumber())) 
             {
-                return false;
+                throw new SupplierAlreadyExistsException(supplier);
             }
         }
         SUPPLIER_DATABASE.add(supplier);
-        LAST_SUPPLIER_ID++;
+        LAST_SUPPLIER_ID = supplier.getId();
         return true;
     }
+    
+    /**
+     * Method untuk mengembalikan supplier
+     *
+     * @return    objek supplier
+     */
     public static Supplier getSupplier(int id)
     {
         for(Supplier temp : SUPPLIER_DATABASE) 
@@ -53,16 +73,26 @@ import java.util.ArrayList;
         }
         return null;
     }
-    public static boolean removeSupplier(int id)
+    
+    /**
+     * Method untuk menghapus supplier dari list
+     *
+     */
+    public static boolean removeSupplier(int id)throws SupplierNotFoundException, ItemNotFoundException
     {
         for(Supplier temp : SUPPLIER_DATABASE) 
         {
             if(temp.getId() == id)
             {
-                DatabaseItem.getItemFromSupplier(temp).clear();
+                ArrayList<Item> list = DatabaseItem.getItemFromSupplier(temp);
+                for(Item temp1 : list) 
+                {
+                    DatabaseItem.removeItem(temp.getId());
+                }
+                SUPPLIER_DATABASE.remove(temp);
                 return true;
             }
         }
-        return false;
+        throw new SupplierNotFoundException(id);
     }
 }

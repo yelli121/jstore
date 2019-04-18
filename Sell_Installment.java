@@ -12,14 +12,14 @@ public class Sell_Installment extends Invoice
     private static final InvoiceStatus INVOICE_STATUS =InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
-    private Costumer costumer;
+    private Customer customer;
     private boolean isActive;
     private SimpleDateFormat dateFormat = new SimpleDateFormat (" dd MM yyy");
     /**
      * Constructor for objects of class Sell_Installment
      */
     public Sell_Installment(ArrayList<Integer> item,
-    int installmentPeriod,Costumer costumer)
+    int installmentPeriod,Customer customer)
     {
         super(item);
         //this.id = DatabaseInvoice.getLastInvoiceID() + 1;
@@ -47,9 +47,9 @@ public class Sell_Installment extends Invoice
     {
         return INVOICE_TYPE;
     }
-    public Costumer getCostumer()
+    public Customer getCustomer()
     {
-        return costumer;
+        return customer;
     }
     
     public void setInstallmentPrice(int totalPrice)
@@ -62,9 +62,9 @@ public class Sell_Installment extends Invoice
         int totalPrice=installmentPrice * installmentPeriod;
         super.setTotalPrice(totalPrice);
     }
-    public void setCostumer(Costumer costumer)
+    public void setCustomer(Customer customer)
     {
-        this.costumer = costumer;
+        this.customer = customer;
     }
     
     public String toString()

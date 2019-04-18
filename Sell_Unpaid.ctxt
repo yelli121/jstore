@@ -1,17 +1,17 @@
 #BlueJ class context
 comment0.target=Sell_Unpaid
-comment1.params=item\ costumer
-comment1.target=Sell_Unpaid(java.util.ArrayList,\ Costumer)
+comment1.params=item\ customer
+comment1.target=Sell_Unpaid(java.util.ArrayList,\ Customer)
 comment2.params=
 comment2.target=InvoiceStatus\ getInvoiceStatus()
 comment3.params=
 comment3.target=InvoiceType\ getInvoiceType()
 comment4.params=
-comment4.target=Costumer\ getCostumer()
+comment4.target=Customer\ getCustomer()
 comment5.params=
 comment5.target=java.util.Calendar\ getDueDate()
-comment6.params=costumer
-comment6.target=void\ setCostumer(Costumer)
+comment6.params=customer
+comment6.target=void\ setCustomer(Customer)
 comment7.params=dueDate
 comment7.target=void\ setDueDate(java.util.Calendar)
 comment8.params=

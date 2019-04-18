@@ -14,16 +14,16 @@ public class Sell_Unpaid extends Invoice
     private static final InvoiceType INVOICE_TYPE = InvoiceType.SELL;
     private static final InvoiceStatus INVOICE_STATUS =InvoiceStatus.Unpaid;
     private Calendar dueDate;
-    private Costumer costumer;
+    private Customer customer;
     private boolean isActive;
     private SimpleDateFormat dateFormat = new SimpleDateFormat ("dd MMM yyy");
     public Sell_Unpaid(ArrayList<Integer> item,
-    Costumer costumer)
+    Customer customer)
     {
        super(item);
        this.dueDate=new GregorianCalendar();
        dueDate.add((GregorianCalendar.DATE), 1);
-       this.costumer=costumer;
+       this.customer=customer;
        this.isActive=true;
     }
 
@@ -35,18 +35,18 @@ public class Sell_Unpaid extends Invoice
     {
         return INVOICE_TYPE;
     }
-    public Costumer getCostumer()
+    public Customer getCustomer()
     {
-        return costumer;
+        return customer;
     }
     public Calendar getDueDate()
     {
         return dueDate;
     }
     
-    public void setCostumer(Costumer costumer)
+    public void setCustomer(Customer customer)
     {
-         this.costumer = costumer;
+         this.customer = customer;
     }
     public void setDueDate(Calendar dueDate)
     {
@@ -70,8 +70,8 @@ public class Sell_Unpaid extends Invoice
         }
         System.out.println("Buy date = " + dateFormat.format(super.getDate().getTime()));
         System.out.println("Price total = " + super.getTotalPrice());
-        System.out.println("Customer ID = " + costumer.getId());
-        System.out.println("Customer name = " + costumer.getName());
+        System.out.println("Customer ID = " + customer.getId());
+        System.out.println("Customer name = " + customer.getName());
         System.out.println("Status = " + INVOICE_STATUS);
         System.out.println("Due date = " + dateFormat.format(dueDate));
         System.out.println(

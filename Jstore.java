@@ -4,95 +4,133 @@
 **/
     // instance variables - replace the example below with your own
 import java.util.*;
-public class Jstore
+ public class JStore
 {
     // instance variables - replace the example below with your own
-    
 
     /**
-     * Constructor for objects of class jstore
+     * Constructor for objects of class JStore
      */
-    public Jstore()
+    public JStore()
     {
         // initialise instance variables
-       
     }
 
-    
+    /**
+     * Fungsi utama yang akan dijalankan
+     */    
     public static void main(String[] args)
     {
+        Location lokasi = new Location("Depok", "Jawa Barat", "Universitas Indonesia");
+        Supplier sup1 = new Supplier("Yelli", "yelli.yulfita@ui.ac.id", "087774170558", lokasi);
+        try {
+            DatabaseSupplier.addSupplier(sup1);
+        }
+        catch (SupplierAlreadyExistsException e){
+            System.out.println(e);
+        }
+        Supplier sup2 = new Supplier("Bayu", "bayu@ui.ac.id", "08256", lokasi);
+        try {
+            DatabaseSupplier.addSupplier(sup2);
+        }
+        catch (SupplierAlreadyExistsException e){
+            System.out.println(e);
+        }
+        Supplier sup3 = new Supplier("Fadel", "fadel@ui.ac.id", "08278", lokasi);
+        try {
+            DatabaseSupplier.addSupplier(sup3);
+        }
+        catch (SupplierAlreadyExistsException e){
+            System.out.println(e);
+        }
+        Supplier sup4 = new Supplier("Dhio", "dhio@ui.ac.id", "08234", lokasi);
+        try {
+            DatabaseSupplier.addSupplier(sup1);
+        }
+        catch (SupplierAlreadyExistsException e){
+            System.out.println(e);
+        }
+        
+        try{
+            DatabaseCustomer.addCustomer(new Customer("Yelli", "yelli.yulfita@ui.ac.id", "yulfitayelly", "yelli12345", 1998, 7, 25));
+        }
+        catch (CustomerAlreadyExistsException e){
+            System.out.println(e);
+        }
+        try{
+            DatabaseCustomer.addCustomer(new Customer("Yulfi", "yelli.yulfita@ui.ac.id", "yulfitayelly", "yelli12345", 1998, 7, 25));
+        }
+        catch (CustomerAlreadyExistsException e){
+            System.out.println(e);
+        }
+        try{
+            DatabaseCustomer.addCustomer(new Customer("fita", "yelli.yulfita@ui.ac.id", "yulfitayelly", "yelli12345", 1998, 7, 25));
+        }
+        catch (CustomerAlreadyExistsException e){
+            System.out.println(e);
+        }
+        try{
+            DatabaseCustomer.addCustomer(new Customer("yulyul", "yelli.yulfita@ui.ac.id", "yulfitayelly", "yelli12345", 1998, 7, 25));
+        }
+        catch (CustomerAlreadyExistsException e){
+            System.out.println(e);
+        }
         
         
-        Location lokasi=new Location("Serang","Banten","Debus");
-        
-        
-        DatabaseSupplier.addSupplier(new Supplier("yelli","yelli.yulfita@ui.ac.id","087774170558",lokasi));
-        DatabaseSupplier.addSupplier(new Supplier("yulfi","yelli.yulfita@ui.ac.id","087774170558",lokasi));
-        DatabaseSupplier.addSupplier(new Supplier("fita","yelli.yulfita@ui.ac.id","087774170558",lokasi));
+        try{
+            DatabaseItem.addItem(new Item("Buku", ItemStatus.New, 5000,ItemCategory.Stationery,DatabaseSupplier.getSupplier(1)));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e);
+        }
 
-        for(Supplier temp : DatabaseSupplier.getSupplierDatabase())
+        try{
+            DatabaseItem.addItem(new Item("Laptop", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(2),ItemCategory.Electronic));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e);
+        }
+
+        try{
+            DatabaseItem.addItem(new Item("Flashdisk", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e);
+        }
+        try{
+            DatabaseItem.addItem(new Item("Mouse", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+        }
+        catch (ItemAlreadyExistsException e){
+            System.out.println(e);
+        }
+
+        
+        ArrayList<Integer> items = new ArrayList<>();
+        items.add(1);
+        items.add(2);
+        ArrayList<Integer> items1 = new ArrayList<>();
+        items1.add(3);
+        ArrayList<Integer> items2 = new ArrayList<>();
+        items.add(3);
+        items.add(2);
+        try{
+            DatabaseInvoice.addInvoice(new Sell_Paid(items, DatabaseCustomer.getCustomer(1)));
+        }
+        catch (InvoiceAlreadyExistsException e){
+            System.out.println(e);
+        }
+        try{
+            DatabaseInvoice.addInvoice(new Sell_Unpaid(items1, DatabaseCustomer.getCustomer(2)));
+        }
+        catch (InvoiceAlreadyExistsException e){
+            System.out.println(e);
+        }
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
-            System.out.println(temp);
+            System.out.println(invoice);
         }
         
-        DatabaseCostumer.addCustomer(new Costumer("yelli","yelli.yulfita@ui.ac.id","yulfitayelly","yelli12345",1998, 07, 25));
-        DatabaseCostumer.addCustomer(new Costumer("yulfi","yelli.yulfita@ui.ac.id","yulfitayelly","yelli12345",1998, 07, 25));
-        DatabaseCostumer.addCustomer(new Costumer("fita","yelli.yulfita@ui.ac.id","yulfitayelly","yelli12345",1998, 07, 25));
         
-        ArrayList<Costumer> temCostumer=DatabaseCostumer.getCustomerDatabase();
-        for(Costumer temp : temCostumer)
-        {
-            System.out.println(temp);
-        }
-        
-        DatabaseItem.addItem(new Item("yelli",23,5000,ItemStatus.New,ItemCategory.Electronic,DatabaseSupplier.getSupplier(1)));
-        DatabaseItem.addItem(new Item("yulfi",23,5000,ItemStatus.New,ItemCategory.Electronic,DatabaseSupplier.getSupplier(2)));
-        DatabaseItem.addItem(new Item("fita",23,5000,ItemStatus.New,ItemCategory.Electronic,DatabaseSupplier.getSupplier(3)));
-        ArrayList<Item> arrInt= new ArrayList<Item>(100);
-        for(Item temp:arrInt)
-        {
-            System.out.println(temp);
-        }
-        
-        ArrayList<Integer> arr_integer1 =new ArrayList<Integer>(100);
-        arr_integer1.add(1);
-        arr_integer1.add(2);
-        
-        ArrayList<Integer> arr_integer2 =new ArrayList<Integer>(100);
-        arr_integer2.add(2);
-        arr_integer2.add(3);
-        
-        ArrayList<Integer> arr_integer3 =new ArrayList<Integer>(100);
-        arr_integer3.add(3);
-        arr_integer3.add(3);
-        
-        DatabaseInvoice.addInvoice(new Sell_Paid(arr_integer1,DatabaseCostumer.getCustomer(1)));
-        DatabaseInvoice.addInvoice(new Sell_Installment(arr_integer2,1,DatabaseCostumer.getCustomer(2)));
-        DatabaseInvoice.addInvoice(new Sell_Paid(arr_integer3,DatabaseCostumer.getCustomer(3)));
-        
-        ArrayList<Invoice> arr_invoice= DatabaseInvoice.getInvoiceDatabase();
-        for(Invoice temp:arr_invoice)
-        {
-            System.out.println(temp);
-        }
-        
-        if(!Transaction.finishTransaction(DatabaseInvoice.getInvoice(1)))
-        System.out.println("finish");
-        if(!Transaction.finishTransaction(DatabaseInvoice.getInvoice(2)))
-        System.out.println("finish");
-        if(!Transaction.finishTransaction(DatabaseInvoice.getInvoice(3)))
-        System.out.println("finish");
-        System.out.println();
-        
-        if(!Transaction.cancelTransaction(DatabaseInvoice.getInvoice(1)));
-        for(Invoice temp:arr_invoice)
-        {
-            System.out.println(temp);
-        }
         
     }
-    
-   
-    
-    
 }

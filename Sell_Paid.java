@@ -12,14 +12,14 @@ public class Sell_Paid extends Invoice
     // instance variables - replace the example below with your own
     private static final InvoiceType INVOICE_TYPE = InvoiceType.SELL;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
-    private Costumer costumer; 
+    private Customer customer; 
     private boolean isActive;
     private SimpleDateFormat dateFormat = new SimpleDateFormat ("dd MMM yyy");
     /**
      * Constructor for objects of class Sell_Paid
      */
     public Sell_Paid(ArrayList<Integer> item
-    ,Costumer costumer)
+    ,Customer customer)
     {
         super(item);
         this.isActive=false;
@@ -34,14 +34,14 @@ public class Sell_Paid extends Invoice
     {
         return this.INVOICE_TYPE;
     }
-    public Costumer getCostumer()
+    public Customer getCustomer()
     {
-        return costumer;
+        return customer;
     }
     
-    public void setCostumer(Costumer costumer)
+    public void setCustomer(Customer customer)
     {
-        this.costumer = costumer;
+        this.customer = customer;
     }
     
     public String toString()
