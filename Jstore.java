@@ -21,7 +21,7 @@ import java.util.*;
      */    
     public static void main(String[] args)
     {
-        Location lokasi = new Location("Depok", "Jawa Barat", "Universitas Indonesia");
+        Location lokasi = new Location("Banten", "Serang", "Universitas Indonesia");
         Supplier sup1 = new Supplier("Yelli", "yelli.yulfita@ui.ac.id", "087774170558", lokasi);
         try {
             DatabaseSupplier.addSupplier(sup1);
@@ -29,21 +29,21 @@ import java.util.*;
         catch (SupplierAlreadyExistsException e){
             System.out.println(e);
         }
-        Supplier sup2 = new Supplier("Bayu", "bayu@ui.ac.id", "08256", lokasi);
+        Supplier sup2 = new Supplier("Yulfi", "Yulfi@ui.ac.id", "087773", lokasi);
         try {
             DatabaseSupplier.addSupplier(sup2);
         }
         catch (SupplierAlreadyExistsException e){
             System.out.println(e);
         }
-        Supplier sup3 = new Supplier("Fadel", "fadel@ui.ac.id", "08278", lokasi);
+        Supplier sup3 = new Supplier("Fadel", "fadel@ui.ac.id", "087774", lokasi);
         try {
             DatabaseSupplier.addSupplier(sup3);
         }
         catch (SupplierAlreadyExistsException e){
             System.out.println(e);
         }
-        Supplier sup4 = new Supplier("Dhio", "dhio@ui.ac.id", "08234", lokasi);
+        Supplier sup4 = new Supplier("Aben", "aben@ui.ac.id", "0823453", lokasi);
         try {
             DatabaseSupplier.addSupplier(sup1);
         }
@@ -78,27 +78,27 @@ import java.util.*;
         
         
         try{
-            DatabaseItem.addItem(new Item("Buku", ItemStatus.New, 5000,ItemCategory.Stationery,DatabaseSupplier.getSupplier(1)));
+            DatabaseItem.addItem(new Item("Buku",5000, ItemStatus.New,ItemCategory.Stationery,DatabaseSupplier.getSupplier(1)));
         }
         catch (ItemAlreadyExistsException e){
             System.out.println(e);
         }
 
         try{
-            DatabaseItem.addItem(new Item("Laptop", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(2),ItemCategory.Electronic));
+            DatabaseItem.addItem(new Item("Laptop",5000, ItemStatus.New,ItemCategory.Electronic, DatabaseSupplier.getSupplier(2)));
         }
         catch (ItemAlreadyExistsException e){
             System.out.println(e);
         }
 
         try{
-            DatabaseItem.addItem(new Item("Flashdisk", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+            DatabaseItem.addItem(new Item("Flashdisk",5000, ItemStatus.New,ItemCategory.Furniture, DatabaseSupplier.getSupplier(3)));
         }
         catch (ItemAlreadyExistsException e){
             System.out.println(e);
         }
         try{
-            DatabaseItem.addItem(new Item("Mouse", ItemStatus.New, 5000, DatabaseSupplier.getSupplier(3),ItemCategory.Furniture));
+            DatabaseItem.addItem(new Item("Mouse",5000, ItemStatus.New,ItemCategory.Furniture, DatabaseSupplier.getSupplier(3)));
         }
         catch (ItemAlreadyExistsException e){
             System.out.println(e);
