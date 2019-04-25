@@ -6,7 +6,7 @@
  * @version 0.1.2 04/04/2019
  */
 
-
+package jstore;
 import java.util.*;
 import java.text.*;
 public abstract class Invoice

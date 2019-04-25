@@ -3,6 +3,7 @@
     * @author Yelli Yulfita
     * @version 12/04/2019
     */
+   package jstore;
    public class Item
 {
     // instance variables - replace the example below with your own

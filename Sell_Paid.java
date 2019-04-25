@@ -5,6 +5,7 @@
  * @author Yelli Yulfita
  * @version 28-03-2019
  */
+package jstore;
 import java.text.*;
 import java.util.*;
 public class Sell_Paid extends Invoice

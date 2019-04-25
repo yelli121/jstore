@@ -4,6 +4,8 @@
  * @version 21-03-2019
 **/
 
+package jstore;
+
 public enum InvoiceStatus
 {
     Paid("Paid"),Unpaid("Unpaid"),Installment("Installment");

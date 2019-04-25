@@ -5,6 +5,8 @@
  * @author Yelli Yulfita
  * @version 04-04-2019
  */
+
+package jstore;
 import java.util.ArrayList;
 
 public class DatabaseInvoice

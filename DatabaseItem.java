@@ -4,6 +4,8 @@
  * @author Yelli Yulfita
  * @version 28/2/2019
  */
+
+package jstore;
 import java.util.ArrayList;
 public class DatabaseItem
 {

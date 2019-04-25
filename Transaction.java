@@ -7,6 +7,8 @@
  * @version 21-03-2019
 **/
 
+package jstore;
+
 import java.util.ArrayList;
 public class Transaction
 {

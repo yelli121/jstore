@@ -5,6 +5,7 @@
  * @author Yelli Yulfita
  * @version 28/2/2019
  */
+package jstore;
 public class Location
 {
     // instance variables - replace the example below with your own

@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+package jstore;
 public class CustomerNotFoundException extends Exception
 {
    private int customer_error;

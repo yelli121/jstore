@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+package jstore;
 public class InvoiceAlreadyExistsException extends Exception
 {
     private Invoice invoice_error;

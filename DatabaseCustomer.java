@@ -5,6 +5,8 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+
+package jstore;
 import java.util.ArrayList;
 public class DatabaseCustomer
 {

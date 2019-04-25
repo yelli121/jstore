@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+package jstore;
 public class CustomerAlreadyExistsException extends Exception
 {
     private Customer customer_error;

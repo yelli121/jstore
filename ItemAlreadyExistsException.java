@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+package jstore;
 public class ItemAlreadyExistsException extends Exception
 {
     private Item item_error;

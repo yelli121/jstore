@@ -4,6 +4,8 @@
  * @version 21-03-2019
 **/
 
+package jstore;
+
 public enum InvoiceType
 {
     BUY("buy"),SELL("sell");

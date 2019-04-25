@@ -5,6 +5,8 @@
  * @author Yelli Yulfita
  * @version 28/2/2019
  */
+
+package jstore;
 import java.util.*;
 import java.util.regex.*;
 public class Supplier
