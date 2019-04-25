@@ -1,22 +1,16 @@
-
-/**
- * Write a description of class SupplierAlreadyExistsException here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 package jstore;
-public class SupplierAlreadyExistsException extends Exception
-{
+public class SupplierAlreadyExistsException extends Exception {
     private Supplier supplier_error;
-    
-    public SupplierAlreadyExistsException(Supplier supplier_input)
-{
-    
-}
 
-public String getExMessage(){
-    return super.getMessage() + supplier_error.getEmail()+",or phoneNumber:"+supplier_error.getPhoneNumber()+"already exists.";
-    
-}
+    public SupplierAlreadyExistsException(Supplier supplier_input) {
+        super("Supplier Email: " );
+        this.supplier_error = supplier_input;
+    }
+    public String getExMessage() {
+
+        System.out.println("\n====Supplier Already Exists Exception====");
+        return super.getMessage() + supplier_error.getEmail() + " ,or phoneNumber: " + supplier_error.getPhoneNumber() + " already exists.";
+
+    }
+
 }

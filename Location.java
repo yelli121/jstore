@@ -1,9 +1,9 @@
 
 /**
- * Kelas digunakan sebagai informasi lokasi
+ * Write a description of class Location here.
  *
- * @author Yelli Yulfita
- * @version 28/2/2019
+ * @author Yelli Yulfits
+ * @version 28-03-2019
  */
 package jstore;
 public class Location
@@ -14,68 +14,59 @@ public class Location
     private String city;
 
     /**
-     * @param parameter yang digunakan adalah city,province,description
-     * Constructor yang digunakan pada class invoice berguna untuk mengassign nilai variabel local ke variabel global
+     * Constructor for objects of class Location
      */
-    public Location(String city, String province, String description)
+    public Location(String province, String city,
+    String description)
     {
-        // initialise instance variables
-        this.city=city;
-        this.province=province;
-        this.description=description;
+        
+        this.province = province;
+        this.city = city;
+        this.description = description;
     }
 
     /**
-     * methode yang berguna untuk mengambil nilai province
-     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel province dan menggunakan tipe data String
+     * @return province digunakan untuk mengembalikan nilai province
      */
     public String getProvince()
     {
         return province;
     }
+    
     /**
-     * methode yang berguna untuk mengambil nilai city
-     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel city dan menggunakan tipe data String
+     * @return city digunakan untuk mengembalikan nilai city
      */
     public String getCity()
     {
         return city;
     }
+    
     /**
-     * methode yang berguna untuk mengambil nilai description
-     * @return dimana nilai yang sudah diambil tersebut direturn ke variabel description dan menggunakan tipe data String
+     * @return description digunakan untuk mengembalikan nilai description
      */
     public String getDescription()
     {
         return description;
     }
+    
     /**
-     * methode yang berguna untuk menset nilai province
-     * @param parameter yang digunakan pada method ini adalah province yang menggunakan tipe data String
+     * @param method digunakan untuk menentukan nilai province
      */
     public void setProvince(String province)
     {
-        this.province=province;
+        this.province = province;
     }
-    /**
-     * methode yang berguna untuk menset nilai city
-     * @param parameter yang digunakan pada method ini adalah city yang menggunakan tipe data String
-     */
+    
     public void setCity(String city)
     {
-        this.city=city;
+        this.city = city;
     }
-    /**
-     * methode yang berguna untuk menset nilai description
-     * @param parameter yang digunakan pada method ini adalah description yang menggunakan tipe data String
-     */
+    
     public void setDescription(String description)
     {
-        this.description=description;
+        this.description = description;
     }
-    /**
-     * methode yang berguna untuk menampilkan nilai province
-     */
+    
     public String toString()
     {
         System.out.println("LOCATION");
@@ -83,6 +74,5 @@ public class Location
         System.out.println("KOTA" + city);
         System.out.println("Deskripsi" + description);
         return "";
-        
     }
 }

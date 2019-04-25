@@ -1,20 +1,18 @@
-
-/**
- * Write a description of class CustomerAlreadyExistsException here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 package jstore;
-public class CustomerAlreadyExistsException extends Exception
-{
+
+public class CustomerAlreadyExistsException extends Exception{
     private Customer customer_error;
-    
-    public CustomerAlreadyExistsException(Customer customer_input){
+
+    public CustomerAlreadyExistsException(Customer customer_input)
+    {
+        super("Customer Email: ");
+        this.customer_error = customer_input;
     }
-    public String getExMessage(){
-        return super.getMessage()+customer_error.getEmail()+",or username:"+customer_error.getUsername()+"already exists.";
+
+    public String getExMessage()
+    {
+        System.out.println("\n====Customer Already Exists Exception====");
+       return super.getMessage() + customer_error.getEmail() + ", or Username:"+
+                customer_error.getUsername()+" already exists.";
     }
 }
-
-    

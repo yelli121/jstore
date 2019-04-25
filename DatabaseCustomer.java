@@ -5,9 +5,9 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-
 package jstore;
 import java.util.ArrayList;
+
 public class DatabaseCustomer
 {
     // instance variables - replace the example below with your own
@@ -19,42 +19,27 @@ public class DatabaseCustomer
      */
     public DatabaseCustomer()
     {
-        // initialise instance variables
+
     }
 
-    /**
-     * Method untuk mengembalikan list supplier
-     *
-     * @return    list supplier
-     */
     public static ArrayList<Customer> getCustomerDatabase()
     {
         return CUSTOMER_DATABASE;
     }
-    
-    /**
-     * Method untuk mengembalikan supplier
-     *
-     * @return    objek supplier
-     */
+
     public static int getLastCustomerID()
+
     {
-        return LAST_CUSTOMER_ID;
+        return LAST_CUSTOMER_ID++;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-//     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public static boolean addCustomer(Customer customer)throws CustomerAlreadyExistsException
     {
         boolean found = false;
         for(Customer temp : CUSTOMER_DATABASE)
         {
             if(temp.getName() == customer.getName() || temp.getEmail()
-            == customer.getEmail())
+                    == customer.getEmail())
             {
                 throw new CustomerAlreadyExistsException(customer);
             }
@@ -63,36 +48,24 @@ public class DatabaseCustomer
         LAST_CUSTOMER_ID = customer.getId();
         return true;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-//     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public static Customer getCustomer(int id)
     {
-        for(Customer temp : CUSTOMER_DATABASE) 
+        for(Customer customerDB : CUSTOMER_DATABASE)
         {
-            if(temp.getId() == id) 
+            if(customerDB.getId()==id)
             {
-                return temp;
+                return customerDB;
             }
         }
         return null;
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-//     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public static boolean removeCustomer(int id)throws CustomerNotFoundException
     {
-        for(Customer temp : CUSTOMER_DATABASE) 
+        for(Customer temp : CUSTOMER_DATABASE)
         {
-            if(temp.getId() == id) 
+            if(temp.getId() == id)
             {
                 CUSTOMER_DATABASE.remove(temp);
                 return true;
@@ -100,4 +73,5 @@ public class DatabaseCustomer
         }
         throw new CustomerNotFoundException(id);
     }
+
 }

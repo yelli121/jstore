@@ -1,20 +1,16 @@
-
-/**
- * Write a description of class CustomerNotFoundException here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 package jstore;
-public class CustomerNotFoundException extends Exception
-{
-   private int customer_error;
-   public CustomerNotFoundException(int customer_input)
-   {
+public class CustomerNotFoundException extends Exception {
+    private int customer_error;
+
+    public CustomerNotFoundException(int customer_input)
+    {
+        super("Customer ID: ");
+        this.customer_error = customer_input;
     }
-    
+
     public String getExMessage()
     {
-        return super.getMessage()+ customer_error+"not found.";
+        System.out.println("\n====Customer Not Found Exception====");
+        return super.getMessage() + customer_error + " not found";
     }
 }

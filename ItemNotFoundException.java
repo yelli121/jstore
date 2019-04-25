@@ -1,27 +1,17 @@
-
-/**
- * Write a description of class ItemNotFoundException here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 package jstore;
 public class ItemNotFoundException extends Exception
 {
     private int item_error;
-    
+
     public ItemNotFoundException(int item_input)
     {
-        super.getMessage();
+        super("Item ID: ");
+        this.item_error = item_input;
     }
-    
-    public String getExMessage(){
-        return super.getMessage() + item_error + "not found.";
-    }
-    
-    public String toString()
+
+    public String getExMessage()
     {
-        System.out.println("Item ID:");
-        return "";
+        System.out.println("\n====Item Not Found Exception====");
+        return super.getMessage() + item_error + " not found.";
     }
 }

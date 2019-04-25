@@ -1,32 +1,22 @@
-
-/**
- * Write a description of class InvoiceAlreadyExistsException here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 package jstore;
+import java.lang.Exception;
+
 public class InvoiceAlreadyExistsException extends Exception
 {
     private Invoice invoice_error;
+
     public InvoiceAlreadyExistsException(Invoice invoice_input)
     {
-        super.getMessage();
+        super("Invoice with Item List ");
+        this.invoice_error = invoice_input;
     }
-    
-    public String getExMessage(){
-        return super.getMessage()+invoice_error.getItem()+"already ordered by"+invoice_error.getCustomer().getUsername();
-    }
-    
-    public String toString()
+
+    public String getExMessage()
     {
-        System.out.println("Invoice with Item list");
-        return "";
+        System.out.println("\n====Invoice Already Exists Exception====");
+        return super.getMessage() + invoice_error.getItem() + " already ordered by " +
+                invoice_error.getCustomer().getUsername();
     }
-    
-    
+
+
 }
-
-
-    
-    

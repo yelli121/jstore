@@ -1,54 +1,61 @@
+
 /**
+ * Write a description of class Sell_Installment here.
+ *
  * @author Yelli Yulfita
- * @version 21-03-2019
-**/
-
+ * @version (a version number or a date)
+ */
 package jstore;
-
 import java.text.*;
-import java.util.*;
+import java.util.ArrayList;
+
 public class Sell_Installment extends Invoice
 {
     // instance variables - replace the example below with your own
-    private static final InvoiceType INVOICE_TYPE = InvoiceType.SELL;
-    private static final InvoiceStatus INVOICE_STATUS =InvoiceStatus.Installment;
+    private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
+    private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Installment;
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
     private boolean isActive;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat (" dd MM yyy");
+    private SimpleDateFormat date = new SimpleDateFormat (" dd MM yyy");
+    
     /**
      * Constructor for objects of class Sell_Installment
      */
-    public Sell_Installment(ArrayList<Integer> item,
-    int installmentPeriod,Customer customer)
+    public Sell_Installment(ArrayList<Integer> item, Customer customer)
     {
         super(item);
-        //this.id = DatabaseInvoice.getLastInvoiceID() + 1;
-        this.installmentPeriod=installmentPeriod;
+        this.installmentPeriod = installmentPeriod;
+        this.customer=customer;
         this.isActive=true;
     }
 
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param
+     * @return
+     */
     public int getInstallmentPeriod()
     {
         return installmentPeriod;
-        
     }
     
     public int getInstallmentPrice()
     {
         return installmentPrice;
     }
-    
+        
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
-    }
-    
+        }
     public InvoiceType getInvoiceType()
     {
         return INVOICE_TYPE;
     }
+    
     public Customer getCustomer()
     {
         return customer;
@@ -56,35 +63,41 @@ public class Sell_Installment extends Invoice
     
     public void setInstallmentPrice(int totalPrice)
     {
-        installmentPrice =(int)(1.02* (totalPrice/installmentPeriod));
+        installmentPrice = (int)(1.02 * (totalPrice / installmentPeriod));
     }
     
     public void setTotalPrice(int installmentPeriod)
     {
-        int totalPrice=installmentPrice * installmentPeriod;
+        int totalPrice = installmentPrice * installmentPeriod;
         super.setTotalPrice(totalPrice);
     }
+    
     public void setCustomer(Customer customer)
     {
         this.customer = customer;
     }
     
+    /**
+     * 
+     */    
+    @Override
     public String toString()
     {
         System.out.println("ID = " + super.getId());
         ArrayList<Integer> listItemID = DatabaseInvoice.getInvoice(super.getId()).getItem();
-        for(int tempID : listItemID)
-        {
-            System.out.println("Item = " + 
-            DatabaseItem.getItemFromID(tempID).getName());
-            System.out.println("Price = " + 
-            DatabaseItem.getItemFromID(tempID).getPrice());
-            System.out.println("Supplier ID = " + 
-            DatabaseItem.getItemFromID(tempID).getSupplier().getId());
-            System.out.println("Supplier name = " + 
-            DatabaseItem.getItemFromID(tempID).getSupplier().getName());
+        for(int itemID : listItemID)
+        {if (DatabaseItem.getItemFromID(itemID) != null) {
+            System.out.println("Item = " +
+                    DatabaseItem.getItemFromID(itemID).getName());
+            System.out.println("Price = " +
+                    DatabaseItem.getItemFromID(itemID).getPrice());
+            System.out.println("Supplier ID = " +
+                    DatabaseItem.getItemFromID(itemID).getSupplier().getId());
+            System.out.println("Supplier name = " +
+                    DatabaseItem.getItemFromID(itemID).getSupplier().getName());
         }
-        System.out.println("Buy date = " + dateFormat.format(super.getDate().getTime()));
+        }
+        System.out.println("Buy date = " + date.format(super.getDate().getTime()));
         System.out.println("Price total = " + super.getTotalPrice());
         System.out.println("Installment price = " + installmentPrice);
         //System.out.println("Customer ID = " + costumer.getId());
@@ -94,5 +107,4 @@ public class Sell_Installment extends Invoice
         System.out.println("Sell success.");
         return "";
     }
-    
 }

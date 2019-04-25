@@ -1,15 +1,17 @@
 
 /**
- * @author Yelli Yulfita
- * @version 21-03-2019
-**/
-
+ * Enumeration class InvoiceStatus - write a description of the enum class here
+ *
+ * @author (your name here)
+ * @version (version number or date here)
+ */
 package jstore;
-
 public enum InvoiceStatus
 {
-    Paid("Paid"),Unpaid("Unpaid"),Installment("Installment");
+    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
+    
     private String description;
+    
     private InvoiceStatus(String description)
     {
         this.description = description;

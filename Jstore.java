@@ -1,30 +1,20 @@
-/**
- * @author Yelli Yulfita
- * @version 21-03-2019
-**/
-    // instance variables - replace the example below with your own
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
 package jstore;
-import java.util.*;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
- @SpringBootApplication
-public class JStore
-{
-    // instance variables - replace the example below with your own
+import java.util.ArrayList;
 
-    /**
-     * Constructor for objects of class JStore
-     */
-    public JStore()
-    {
-        // initialise instance variables
+@SpringBootApplication
+
+public class JStore {
+    public JStore() {
     }
 
-    /**
-     * Fungsi utama yang akan dijalankan
-     */    
     public static void main(String[] args) {
         SpringApplication.run(JStore.class, args);
     }
+
 }

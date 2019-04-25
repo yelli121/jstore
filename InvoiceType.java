@@ -1,19 +1,20 @@
 
 /**
- * @author Yelli Yulfita
- * @version 21-03-2019
-**/
-
+ * Enumeration class InvoiceType - write a description of the enum class here
+ *
+ * @author (your name here)
+ * @version (version number or date here)
+ */
 package jstore;
-
 public enum InvoiceType
 {
-    BUY("buy"),SELL("sell");
+    Buy("Buy"), Sell("Sell");
     
-    String description;
+    private String description;
+    
     private InvoiceType(String description)
     {
-        this.description=description;
+        this.description = description;
     }
     
     public String toString()
