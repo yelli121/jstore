@@ -1,135 +1,91 @@
+package jstore;
 
+import java.util.*;
 /**
- * Write a description of class Sell_Unpaid here.
+ * Write a description of class Sell_Installment here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-package jstore;
-import java.io.IOException;
-import java.util.Calendar;
-import java.util.ArrayList;
-import java.util.*;
-import java.text.*;
-
 public class Sell_Unpaid extends Invoice
 {
-    private static final InvoiceType INVOICE_TYPE = InvoiceType.Sell;
-    private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
+    // instance variables - replace the example below with your own
+    private static InvoiceType INVOICE_TYPE = InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
     private Calendar dueDate;
-    private Customer customer;
-    private boolean isActive;
-    private SimpleDateFormat date = new SimpleDateFormat ("dd MMM yyy");
-    
-    /**
-     * Constructor for objects of class Sell_Unpaid
-     */
-    public Sell_Unpaid(ArrayList<Integer> item, Customer customer)
-    {
-        super(item);
-        this.customer=customer;
-        this.isActive=true;
-        this.dueDate=new GregorianCalendar();
-        dueDate.add((GregorianCalendar.DATE), 1);
-    }
+	private Customer customer;
+	private boolean isActive;
 
     /**
-     * An 
-     *
-     * @param
-     * @return    the 
+     * Constructor for objects of class Buy_Paid
      */
-    @Override
+    public Sell_Unpaid(ArrayList<Integer> item, Customer customer)   
+    {
+        // initialise instance variables        
+        super(item);
+        this.customer = customer;
+		
+		dueDate = new GregorianCalendar();
+		dueDate.add(Calendar.DATE, 1);
+		
+		isActive = true;
+    }
+    
     public InvoiceStatus getInvoiceStatus()
     {
         return INVOICE_STATUS;
     }
     
-    /**
-     * An 
-     *
-     * @param
-     * @return    th
-     */
-    @Override
     public InvoiceType getInvoiceType()
     {
         return INVOICE_TYPE;
-    }
+    }    
+	
+	public Customer getCustomer()
+	{
+		return customer;
+	}
     
-    /**
-     * An 
-     *
-     * @param
-     * @return    th
-     */
-    public Customer getCustomer()
-    {
-        return customer;
-    }
-    
-    /**
-     * An 
-     *
-     * @param
-     * @return    th
-     */
     public Calendar getDueDate()
     {
         return dueDate;
     }
     
-    /**
-     * An 
-     *
-     * @param
-     * @return    th
-     */
-    public void setCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
-    
-    /**
-     * An 
-     *
-     * @param
-     * @return    th
-     */
-    public void setDueDate(Calendar dueDate)
-    {
-        this.dueDate = dueDate;
-    }
-    
-    /**
-     * Me
-     *
-     */    
-    @Override
-    public String toString()
-    {
-        System.out.println("ID = " + super.getId());
-        ArrayList<Integer> listItemID = DatabaseInvoice.getInvoice(super.getId()).getItem();
-        for(int itemID : listItemID)
-        { if (DatabaseItem.getItemFromID(itemID) != null){
-                System.out.println("Item = " +
-                        DatabaseItem.getItemFromID(itemID).getName());
-                System.out.println("Price = " +
-                        DatabaseItem.getItemFromID(itemID).getPrice());
-                System.out.println("Supplier ID = " +
-                        DatabaseItem.getItemFromID(itemID).getSupplier().getId());
-                System.out.println("Supplier name = " +
-                        DatabaseItem.getItemFromID(itemID).getSupplier().getName());
-          }
-        }
-        System.out.println("Buy date = " + date.format(super.getDate().getTime()));
-        System.out.println("Price total = " + super.getTotalPrice());
-        System.out.println("Customer ID = " + customer.getId());
-        System.out.println("Customer name = " + customer.getName());
-        System.out.println("Status = " + INVOICE_STATUS);
-        System.out.println("Due date = " + date.format(dueDate));
-        System.out.println(
-        "If payment is not received by dueDate, transaction will be cancelled.");
-        return "";
-    }
+	public void setCustomer(Customer customer)
+	{
+		this.customer = customer;
+	}
+	
+	public void setDueDate(Calendar dueDate)
+	{
+		this.customer = customer;
+	}
+	
+	public void setInvoiceStatus(InvoiceStatus status)
+	{
+		INVOICE_STATUS = status;
+	}		
+
+	public String toString()
+	{
+		String output = "============Sell Unpaid============\n";	
+	
+		for(int i : super.getItem())
+		{
+			Item j = DatabaseItem.getItemFromId(i);
+			
+			String itemIteration =  "Id			: " + j.getId() + "\n" +
+									"Name		: " + j.getName() + "\n" +
+
+									"Price		: " + j.getPrice() +  "\n" +
+									"Category 	: " + j.getCategory() + "\n" +
+									"Status		: " + j.getStatus() + "\n\n";
+									
+			output += itemIteration;
+		}
+		
+		output += "\n";
+				
+		return output;
+	}
 }

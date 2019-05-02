@@ -1,78 +1,109 @@
+package jstore;
 
 /**
- * Write a description of class Location here.
+ * Mendefinisikan location sebagai alamat lokasi. Kelas ini digunakan oleh
+ * Supplier dalam identitasnya. Informasi yang disimpan yaitu provinsi, 
+ * kota, dan deskripsi singkat.
  *
- * @author Yelli Yulfits
- * @version 28-03-2019
+ * @author Yelli Yulfita
+ * @since 28-2-2019
  */
-package jstore;
+
 public class Location
 {
-    // instance variables - replace the example below with your own
     private String province;
     private String description;
-    private String city;
+    private String city;    
 
     /**
-     * Constructor for objects of class Location
+     * Konstruktor Location membutuhkan nilai dari setiap instance
+     * dalam parameter sebagai nilai awal instance.
      */
-    public Location(String province, String city,
-    String description)
+    public Location(String city, String province, 
+                    String description)
     {
-        
-        this.province = province;
         this.city = city;
+        this.province = province;
         this.description = description;
     }
 
     /**
-     * @return province digunakan untuk mengembalikan nilai province
-     */
+     * Mengambil nilai dari variabel province, yaitu tempat provinsi
+     * dalam alamat.
+     * 
+     * @return bagian provinsi dari lokasi atau alamat
+     */    
     public String getProvince()
     {
         return province;
     }
     
     /**
-     * @return city digunakan untuk mengembalikan nilai city
-     */
+     * Mengambil nilai dari variabel city, yaitu tempat kota
+     * dalam alamat.
+     * 
+     * @return bagian kota dari lokasi atau alamat
+     */      
     public String getCity()
     {
         return city;
     }
     
     /**
-     * @return description digunakan untuk mengembalikan nilai description
-     */
+     * Mengambil nilai dari variabel description, yaitu penjelasan
+     * singkat dari detail informasi lokasi atau alamat, seperti
+     * nama jalan atau nomor gedung.
+     * 
+     * @return informasi detail dari lokasi atau alamat
+     */      
     public String getDescription()
     {
         return description;
     }
     
     /**
-     * @param method digunakan untuk menentukan nilai province
-     */
+     * Merubah nilai dari variabel province, yaitu tempat provinsi
+     * dalam alamat.
+     * 
+     * @param province nama provinsi baru dari lokasi atau alamat sebagai pengganti
+     */      
     public void setProvince(String province)
     {
         this.province = province;
     }
     
+    /**
+     * Merubah nilai dari variabel city, yaitu tempat kota
+     * dalam alamat.
+     * 
+     * @param city nama kota baru dari lokasi atau alamat sebagai pengganti
+     */          
     public void setCity(String city)
     {
         this.city = city;
     }
     
+    /**
+     * Merubah nilai dari variabel description, yaitu penjelasan
+     * singkat dari detail informasi lokasi atau alamat, seperti
+     * nama jalan atau nomor gedung.
+     * 
+     * @param description string informasi detail baru sebagai pengganti
+     */        
     public void setDescription(String description)
     {
         this.description = description;
     }
     
+    /**
+     * Menampilkan nilai dari variabel province pada standard
+     * output monitor
+     */    
     public String toString()
     {
-        System.out.println("LOCATION");
-        System.out.println("PROVINSI" + province);
-        System.out.println("KOTA" + city);
-        System.out.println("Deskripsi" + description);
-        return "";
+         return "===========LOCATION===========" + "\n" +
+                "Kota: " + city + "\n" +
+                "Provinsi: " +province + "\n" +
+                "Deskripsi: " + description + "\n";
     }
 }

@@ -1,41 +1,21 @@
 package jstore.controller;
 
-
-
-import jstore.DatabaseSupplier;
-
-import jstore.Supplier;
-
+import java.util.*;
+import jstore.*;
 import org.springframework.web.bind.annotation.*;
 
-
-
-import java.util.ArrayList;
-
-
-
 @RestController
-
 public class SupplierController {
-
-
-
-    @RequestMapping("/suppliers")
-
-    public ArrayList<Supplier> supplierList(){
-
-        return DatabaseSupplier.getSupplierDatabase();
-
-    }
-
-
-
-    @RequestMapping("/suppliers/{id_supplier}")
-
-    public Supplier getSupplier(@PathVariable int id_supplier){
-
-        return DatabaseSupplier.getSupplier(id_supplier);
-
-    }
-
+	
+	@RequestMapping(value = "/suppliers", method = RequestMethod.GET)
+	public ArrayList<Supplier> supplierList()
+	{
+		return DatabaseSupplier.getSupplierDatabase();
+	}
+	
+	@RequestMapping(value = "/suppliers/{id_supplier}", method = RequestMethod.GET)
+	public Supplier getSupplier(@PathVariable int id_supplier)
+	{
+		return DatabaseSupplier.getSupplier(id_supplier);
+	}
 }

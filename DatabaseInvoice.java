@@ -1,105 +1,114 @@
+package jstore;
+
+import java.util.*;
 
 /**
- * Write a description of class DatabaseInvoice here.
+ * Mendefinisikan database dari supplier. Kelas menyimpan data dari semua
+ * objek supplier sebagai penyedia produk atau penjual item 
+ * untuk basis data.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yelli Yulfita
+ * @version 28-04-2019
  */
-package jstore;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseInvoice
 {
-    // instance variables - replace the example below with your own
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<>();
+	private static int LAST_INVOICE_ID = 0;
 
-    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
-    private static int LAST_INVOICE_ID = 0;
-
-    /**
-     * Constructor for objects of class DatabaseInvoice
-     */
-    public static ArrayList<Invoice> getInvoiceDatabase()
-    {
-        return INVOICE_DATABASE;
-    }
+	public static ArrayList<Invoice> getInvoiceDatabase()
+	{
+		return INVOICE_DATABASE;
+	}
+	
+	public static int getLastInvoiceId()
+	{
+		return LAST_INVOICE_ID;
+	}
     
-    public static int getLastInvoiceID()
-    {
-        return LAST_INVOICE_ID;
-    }
-
+    /**
+     * Menambahkan objek supplier baru pada basis data.
+     * 
+     * objek supplier baru yang ingin dimasukan dalam basis data
+     * @return false
+     */    
     public static boolean addInvoice(Invoice invoice) throws InvoiceAlreadyExistsException
     {
-
-        for(Invoice temp : INVOICE_DATABASE)
-        {
-            if((temp.getItem() == invoice.getItem()) &&
-                    (temp.getCustomer() == invoice.getCustomer()))
-            {
-                throw new InvoiceAlreadyExistsException(invoice);
-            }
-        }
-        INVOICE_DATABASE.add(invoice);
-        LAST_INVOICE_ID++;
+		for(Invoice i : INVOICE_DATABASE)
+		{
+			if(i.getCustomer().equals(invoice.getCustomer()) &&
+				i.getItem().equals(invoice.getItem())
+				)
+			{				
+				throw new InvoiceAlreadyExistsException(i);
+			}
+		}		
+		
+		
+		INVOICE_DATABASE.add(invoice);
+		LAST_INVOICE_ID = invoice.getId();
+		
         return true;
     }
-    
-    public static Invoice getInvoice (int id)
+	
+    /**
+     * Mengambil nilai dari variabel supplier, yaitu objek supplier yang
+     * ada pada basis data
+     * 
+     * @return item supplier item yang ingin diambil nilainya
+     */    
+    public static Invoice getInvoice(int id)
     {
-        for(Invoice invoice : INVOICE_DATABASE)
-        {
-            if(invoice.getId() == id)
-            {
-                return invoice;
-            }
-        }
+		for(Invoice i : INVOICE_DATABASE)
+		{
+			if(i.getId() == id)
+				return i;
+		}
+		
         return null;
-    }
-                       
-    public static ArrayList<Invoice> getActiveOrder(Customer customer) throws CustomerDoesntHaveActiveException
-    {
-        ArrayList<Invoice> list = new ArrayList<Invoice>();
-        boolean found = false;
-        for(Invoice temp : INVOICE_DATABASE)
-        {
-            if(temp.getCustomer() == customer &&
-                    temp.getIsActive() == true)
-            {
-                list.add(temp);
-                found = true;
-            }
-            else
-            {
-                throw new CustomerDoesntHaveActiveException(customer);
-            }
-        }
-        if(found)
-        {
-            return list;
-        }
-        else
-        {
-            return null;
-        }
-    }
+    }	
+	
+	public static ArrayList<Invoice> getActiveOrder(Customer customer) throws CustomerDoesntHaveActiveException
+	{
+		ArrayList<Invoice> out = new ArrayList<>();
+		
+		for(Invoice i : INVOICE_DATABASE)
+		{
+			if(i.getIsActive() == true &&
+				i.getCustomer() == customer)
+			{
+					out.add(i);
+			}
+		}
 
-    public static boolean removeInvoice(int id)throws InvoiceNotFoundException
+		if(out.size() == 0)
+			throw new CustomerDoesntHaveActiveException(customer);
+		
+		return out;
+	}
+	
+    /**
+     * Menghapus objek supplier yang telah ada pada basis data.
+     * 
+     * @param supplier objek supplier yang ingin dihapus dari basis data
+     */    
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {
-        for(Invoice temp : INVOICE_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                if(temp.getIsActive() == true)
-                {
-                    temp.setIsActive(false);
-                }
-                INVOICE_DATABASE.remove(temp);
-                return true;
-            }
-        }
-        throw new InvoiceNotFoundException(id);
-    }
-      
-    
+		for(Invoice i : INVOICE_DATABASE)
+		{
+			if(i.getId() == id)
+			{
+				if(i.getIsActive() == true)
+				{
+					i.setIsActive(false);
+				}				
+				
+				INVOICE_DATABASE.remove(i);
+					
+				return true;
+			}
+		}				
+				
+		throw new InvoiceNotFoundException(id);
+    }	
 }

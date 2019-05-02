@@ -1,3 +1,5 @@
+package jstore;
+
 
 /**
  * Enumeration class InvoiceStatus - write a description of the enum class here
@@ -5,20 +7,20 @@
  * @author (your name here)
  * @version (version number or date here)
  */
-package jstore;
 public enum InvoiceStatus
 {
-    Paid("Paid"), Unpaid("Unpaid"), Installment("Installment");
+    Paid("Paid"),
+    Unpaid("Unpaid"),
+    Installment("Installment");
     
-    private String description;
+    private String status;
     
-    private InvoiceStatus(String description)
-    {
-        this.description = description;
+    InvoiceStatus(String status){
+        this.status = status;
     }
     
-    public String toString()
-    {
-        return description;
-    }
+    @Override
+    public String toString(){
+        return status;
+    } 
 }

@@ -1,39 +1,21 @@
 package jstore.controller;
 
-
-
-import jstore.DatabaseItem;
-
-import jstore.Item;
-
+import java.util.*;
+import jstore.*;
 import org.springframework.web.bind.annotation.*;
 
-
-
-import java.util.ArrayList;
-
-
-
 @RestController
-
 public class ItemController {
-
-
-
-    @RequestMapping("/items")
-
-    public ArrayList<Item> itemsList(){
-
-        return DatabaseItem.getItemDatabase();
-
-    }
-
-    @RequestMapping("/items/{id_item}")
-
-    public Item getItemFromID(@PathVariable int id_item){
-
-        return DatabaseItem.getItemFromID(id_item);
-
-    }
-
+	
+	@RequestMapping(value = "/items", method = RequestMethod.GET)
+	public ArrayList<Item> itemList()
+	{
+		return DatabaseItem.getItemDatabase();
+	}
+	
+	@RequestMapping(value = "/items/{id_item}", method = RequestMethod.GET)
+	public Item getItemFromId(@PathVariable int id_item)
+	{
+		return DatabaseItem.getItemFromId(id_item);
+	}
 }

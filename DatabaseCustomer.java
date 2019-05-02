@@ -1,77 +1,86 @@
+package jstore;
+
+import java.util.*;
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * Mendefinisikan database dari supplier. Kelas menyimpan data dari semua
+ * objek supplier sebagai penyedia produk atau penjual item 
+ * untuk basis data.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Yelli Yulfita
+ * @version 25-03-2019
  */
-package jstore;
-import java.util.ArrayList;
 
 public class DatabaseCustomer
 {
-    // instance variables - replace the example below with your own
-    private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
-    private static int LAST_CUSTOMER_ID = 0;
-
-    /**
-     * Constructor for objects of class DatabaseCustomer
-     */
-    public DatabaseCustomer()
-    {
-
-    }
-
-    public static ArrayList<Customer> getCustomerDatabase()
-    {
-        return CUSTOMER_DATABASE;
-    }
-
-    public static int getLastCustomerID()
-
-    {
-        return LAST_CUSTOMER_ID++;
-    }
-
-    public static boolean addCustomer(Customer customer)throws CustomerAlreadyExistsException
-    {
-        boolean found = false;
-        for(Customer temp : CUSTOMER_DATABASE)
-        {
-            if(temp.getName() == customer.getName() || temp.getEmail()
-                    == customer.getEmail())
-            {
-                throw new CustomerAlreadyExistsException(customer);
-            }
-        }
-        CUSTOMER_DATABASE.add(customer);
-        LAST_CUSTOMER_ID = customer.getId();
-        return true;
-    }
-
-    public static Customer getCustomer(int id)
-    {
-        for(Customer customerDB : CUSTOMER_DATABASE)
-        {
-            if(customerDB.getId()==id)
-            {
-                return customerDB;
-            }
-        }
-        return null;
-    }
-
-    public static boolean removeCustomer(int id)throws CustomerNotFoundException
-    {
-        for(Customer temp : CUSTOMER_DATABASE)
-        {
-            if(temp.getId() == id)
-            {
-                CUSTOMER_DATABASE.remove(temp);
-                return true;
-            }
-        }
-        throw new CustomerNotFoundException(id);
-    }
-
+	private static ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<>();
+	private static int LAST_CUSTOMER_ID = 0;    
+    
+	public static ArrayList<Customer> getCustomerDatabase()
+	{
+		return CUSTOMER_DATABASE;
+	}
+	
+	public static int getLastCustomerId()
+	{
+		return LAST_CUSTOMER_ID;
+	}
+	
+	public static boolean addCustomer(Customer customer) throws CustomerAlreadyExistsException
+	{
+		for(Customer i : CUSTOMER_DATABASE)
+		{
+			if(i.getName().equals(customer.getName()) ||
+				i.getEmail().equals(customer.getEmail())
+				)	
+			{
+				throw new CustomerAlreadyExistsException(customer);
+			}
+		}
+		
+		CUSTOMER_DATABASE.add(customer);
+		LAST_CUSTOMER_ID = customer.getId();
+		
+		return true;
+	}
+	
+	public static Customer getCustomer(int id)
+	{
+		for(Customer i : CUSTOMER_DATABASE)
+		{
+			if(i.getId() == id)
+				return i;
+		}
+		
+		return null;
+	}
+	
+	public static boolean removeCustomer(int id) throws CustomerNotFoundException
+	{
+		for(Customer i : CUSTOMER_DATABASE)
+		{
+			if(i.getId() == id)
+			{
+				CUSTOMER_DATABASE.remove(i);
+				return true;				
+			}
+		}		
+		
+		throw new CustomerNotFoundException(id);
+	}
+	
+	public static Customer getCustomerLogin(String email, String password)
+	{
+		for(Customer i : CUSTOMER_DATABASE)
+		{
+			if(i.getEmail().equals(email) &&
+				i.getPassword().equals(password)
+				)	
+			{
+				return i;
+			}
+		}		
+		
+		return null;
+	}    
 }
